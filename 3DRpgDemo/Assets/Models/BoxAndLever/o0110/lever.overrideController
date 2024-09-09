@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: lever
+  m_Controller: {fileID: 9100000, guid: dc31fd101ef02d5449cc7ce3b4bc49cf, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 8733111131979999274, guid: f6c71667213dd0b478b0c3f10f68f239, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: c1f523c1def6bc3498f7730545d32fc7, type: 2}
+  - m_OriginalClip: {fileID: 7400002, guid: f6c71667213dd0b478b0c3f10f68f239, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: bf548233c56ba2e40b022fc078135d0c, type: 2}
