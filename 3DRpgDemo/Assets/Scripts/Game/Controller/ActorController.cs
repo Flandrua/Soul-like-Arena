@@ -25,7 +25,7 @@ public class ActorController : MonoBehaviour
     private bool canAttack;
     private bool lockPlanar = false;
     private bool trackDirection = false;
-    private CapsuleCollider col;
+    private Collider col;
     //private float lerpTarget;
     private Vector3 deltaPos;
     public bool leftIsShield = true;
@@ -50,7 +50,11 @@ public class ActorController : MonoBehaviour
     }
     void Start()
     {
-
+        //AddListener();
+    }
+    private void OnDestroy()
+    {
+        //RemoveListenr();
     }
 
     // Update is called once per frame
@@ -73,7 +77,7 @@ public class ActorController : MonoBehaviour
             anim.SetFloat("right", localDVec.x * ((pi.run) ? 2.0f : 1.0f));
         }
         //anim.SetBool("defense", pi.defense);
-        if (rigid.velocity.magnitude >5.0f)
+        if (rigid.velocity.magnitude > 5.0f)
         {
             anim.SetTrigger("roll");
         }
@@ -83,7 +87,7 @@ public class ActorController : MonoBehaviour
             canAttack = false;
         }
 
-        if ((pi.rb || pi.lb) & (CheckState("ground") || CheckStateTag("attackR")|| CheckStateTag("attackL")) && canAttack)
+        if ((pi.rb || pi.lb) & (CheckState("ground") || CheckStateTag("attackR") || CheckStateTag("attackL")) && canAttack)
         {
             if (pi.rb)
             {
@@ -97,17 +101,17 @@ public class ActorController : MonoBehaviour
             }
         }
 
-        if ((pi.rt || pi.lt)&& CheckState("ground")||CheckState("attackR")||CheckState("attackL")&&canAttack)
-                {
-            if(pi.rt)
+        if ((pi.rt || pi.lt) && CheckState("ground") || CheckState("attackR") || CheckState("attackL") && canAttack)
+        {
+            if (pi.rt)
             {
                 //do right heavy attack
             }
             else
             {
-                if(!leftIsShield)
+                if (!leftIsShield)
                 {
-                   // do left heavy attack
+                    // do left heavy attack
                 }
                 else
                 {
@@ -119,7 +123,7 @@ public class ActorController : MonoBehaviour
 
         if (leftIsShield)
         {
-            if (CheckState("ground")||CheckState("blocked"))
+            if (CheckState("ground") || CheckState("blocked"))
             {
                 anim.SetBool("defense", pi.defense);
                 anim.SetLayerWeight(anim.GetLayerIndex("defense"), 1);
@@ -142,7 +146,7 @@ public class ActorController : MonoBehaviour
 
         if (camcon.lockState == false)
         {
-            if(pi.inputEnabled==true)
+            if (pi.inputEnabled == true)
             {
                 if (pi.Dmag > 0.1f)
                     model.transform.forward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.2f);
@@ -193,7 +197,7 @@ public class ActorController : MonoBehaviour
     {
         anim.SetTrigger(triggerName);
     }
-    public void SetBool(string boolName,bool value)
+    public void SetBool(string boolName, bool value)
     {
         anim.SetBool(boolName, value);
     }
@@ -217,6 +221,45 @@ public class ActorController : MonoBehaviour
     {
         anim.SetBool("isGround", false);
     }
+
+    //private void AddListener()
+    //{
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_GROUND_ENTER, OnGroundEnter);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_GROUND_EXIT, OnGroundExit);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_FALL_ENTER, OnFallEnter);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_ROLL_ENTER, OnRollEnter);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_JAB_ENTER, OnJabEnter);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_JAB_UPDATE, OnJabUpdate);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_ATTACK_1H_ENTER, OnAttack1hAEnter);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_ATTACK_1H_UPDATE, OnAttack1hAUpdate);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_ATTACK_EXIT, OnAttackExit);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_HIT_ENTER, OnHitEnter);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_DIE_ENTER, OnDieEnter);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_BLOCKED_ENTER, OnBlockedEnter);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_STUNNED_ENTER, OnStunnedEnter);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_COUNTER_BACK_ENTER, OnCounterBackEnter);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_COUNTER_BACK_EXIT, OnCounterBackExit);
+    //    EventManager.AddListener<GameObject>(EventCommon.ON_LOCK_ENTER, OnLockEnter);
+    //}
+    //private void RemoveListenr()
+    //{
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_GROUND_ENTER, OnGroundEnter);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_GROUND_EXIT, OnGroundExit);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_FALL_ENTER, OnFallEnter);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_ROLL_ENTER, OnRollEnter);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_JAB_ENTER, OnJabEnter);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_JAB_UPDATE, OnJabUpdate);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_ATTACK_1H_ENTER, OnAttack1hAEnter);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_ATTACK_1H_UPDATE, OnAttack1hAUpdate);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_ATTACK_EXIT, OnAttackExit);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_HIT_ENTER, OnHitEnter);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_DIE_ENTER, OnDieEnter);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_BLOCKED_ENTER, OnBlockedEnter);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_STUNNED_ENTER, OnStunnedEnter);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_COUNTER_BACK_ENTER, OnCounterBackEnter);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_COUNTER_BACK_EXIT, OnCounterBackExit);
+    //    EventManager.RemoveListener<GameObject>(EventCommon.ON_LOCK_ENTER, OnLockEnter);
+    //}
     public void OnGroundEnter()
     {
         pi.inputEnabled = true;
@@ -238,10 +281,10 @@ public class ActorController : MonoBehaviour
     public void OnRollEnter()
     {
         pi.inputEnabled = false;
-        planarVec += pi.Dvec * walkSpeed*2 ;     
+        planarVec += pi.Dvec * walkSpeed * 2;
         thrustVec = new Vector3(0, rollVelocity, 0);
         trackDirection = true;
-   lockPlanar = true;
+        lockPlanar = true;
     }
     public void OnJabEnter()
     {
@@ -268,6 +311,7 @@ public class ActorController : MonoBehaviour
     {
 
         model.SendMessage("WeaponDisable");
+
     }
     public void OnHitEnter()
     {
@@ -275,7 +319,7 @@ public class ActorController : MonoBehaviour
         planarVec = Vector3.zero;
         model.SendMessage("WeaponDisable");
     }
-   public void OnDieEnter()
+    public void OnDieEnter()
     {
         pi.inputEnabled = false;
         planarVec = Vector3.zero;
@@ -285,12 +329,12 @@ public class ActorController : MonoBehaviour
     {
         pi.inputEnabled = false;
     }
-    public void OnUpdateRM(object _deltaPos)
+    public void OnUpdateRM(object _deltaPos)//用unity的传递消息的方法
     {
         if (CheckState("attack1hC"))
             deltaPos += (0.8f * deltaPos + 0.2f * (Vector3)_deltaPos) / 1.0f;
     }
-   public void OnStunnedEnter()
+    public void OnStunnedEnter()
     {
         pi.inputEnabled = false;
         planarVec = Vector3.zero;
@@ -303,7 +347,7 @@ public class ActorController : MonoBehaviour
     }
     public void OnCounterBackExit()
     {
-       
+
         model.SendMessage("CounterBackDisable");
     }
     public void OnLockEnter()

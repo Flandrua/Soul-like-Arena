@@ -29,5 +29,23 @@ public class EventCommon
     public static string REFRESH_SHOP = "RefreshShop";
 
     public static string RIGHT = "Right";
+    public static string ON_ATTACK_1H_ENTER = "OnAttack1hAEnter";
+    public static string ON_ATTACK_1H_UPDATE = "OnAttack1hAUpdate";
+    public static string ON_ATTACK_EXIT = "OnAttackExit";
+    public static string ON_GROUND_ENTER= "OnGroundEnter";
+    public static string ON_GROUND_EXIT= "OnGroundExit";
+    public static string ON_JUMP_ENTER = "OnJumpEnter";
+    public static string ON_FALL_ENTER = "OnFallEnter";
+    public static string ON_ROLL_ENTER = "OnRollEnter";
+    public static string ON_JAB_ENTER = "OnJabEnter";
+    public static string ON_JAB_UPDATE = "OnJabUpdate";
+    public static string ON_HIT_ENTER = "OnHitEnter";
+    public static string ON_DIE_ENTER = "OnDieEnter";
+    public static string ON_LOCK_ENTER = "OnLockEnter";
+    public static string ON_BLOCKED_ENTER = "OnBlockedEnter";
+    public static string ON_STUNNED_ENTER = "OnStunnedEnter";
+    public static string ON_COUNTER_BACK_ENTER = "OnCounterBackEnter";
+    public static string ON_COUNTER_BACK_EXIT = "OnCounterBackExit";
+    public static string WEAPON_DISABLE = "WeaponDisable";
 
 }

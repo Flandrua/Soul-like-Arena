@@ -8280,7 +8280,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167611925}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e572a04fd8fbbc44bba6ea679cf99c86, type: 3}
   m_Name: 
@@ -17042,6 +17042,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   am: {fileID: 0}
+  weaponColL: {fileID: 0}
+  weaponColR: {fileID: 0}
   whL: {fileID: 190287044}
   whR: {fileID: 1454670554}
   wcL: {fileID: 0}
@@ -21715,7 +21717,15 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: 8255847118318204595, guid: 5f0f0fad41234034aa8cee6e8dcbd63f, type: 2}
+    value: {fileID: 7665603636183976039}
+  - key: {fileID: 7016114415911031479, guid: 5f0f0fad41234034aa8cee6e8dcbd63f, type: 2}
+    value: {fileID: 32724016}
+  - key: {fileID: -245720600273432758, guid: 5f0f0fad41234034aa8cee6e8dcbd63f, type: 2}
+    value: {fileID: 2032743509}
+  - key: {fileID: 1760362312046012742, guid: 5f0f0fad41234034aa8cee6e8dcbd63f, type: 2}
+    value: {fileID: 1167611928}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &2035848451
@@ -22930,7 +22940,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103837303}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e572a04fd8fbbc44bba6ea679cf99c86, type: 3}
   m_Name: 
@@ -23329,12 +23339,20 @@ PlayableDirector:
   m_GameObject: {fileID: 2133936648}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 0}
+  m_PlayableAsset: {fileID: 11400000, guid: 6bab9d679cb4bcb47831e44f80454b42, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: -1844672522719820809, guid: 6bab9d679cb4bcb47831e44f80454b42, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2608400741055214713, guid: 6bab9d679cb4bcb47831e44f80454b42, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6163526942950979214, guid: 6bab9d679cb4bcb47831e44f80454b42, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4930519124059390396, guid: 6bab9d679cb4bcb47831e44f80454b42, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &2134962911
@@ -33932,6 +33950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ATK: 5
+  canHurt: 0
 --- !u!1 &4732602073978613547
 GameObject:
   m_ObjectHideFlags: 0
@@ -42320,6 +42339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   am: {fileID: 0}
+  weaponColL: {fileID: 0}
+  weaponColR: {fileID: 0}
   whL: {fileID: 0}
   whR: {fileID: 0}
   wcL: {fileID: 0}

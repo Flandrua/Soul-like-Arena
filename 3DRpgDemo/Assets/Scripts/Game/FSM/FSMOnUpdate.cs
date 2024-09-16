@@ -16,7 +16,7 @@ public class FSMOnUpdate : StateMachineBehaviour
     {
         foreach (var msg in onUpdateMessages)
         {
-            animator.SendMessageUpwards(msg);
+            animator.gameObject.SendMessageUpwards(msg);
         }
     }
 

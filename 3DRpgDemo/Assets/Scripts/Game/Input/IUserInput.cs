@@ -23,6 +23,9 @@ public abstract class IUserInput : MonoBehaviour
     public bool lockon;
     public bool lb;
     public bool lt;
+    /// <summary>
+    /// rbÊÇÓÒ¼ç¼ü
+    /// </summary>
     public bool rb;
     public bool rt;
 

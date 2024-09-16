@@ -38,7 +38,7 @@ MonoBehaviour:
     am: {fileID: 0}
     myFloat: 0
   am:
-    exposedName: 66905326-0f37-4612-8fa5-55d007ab3ed5
+    exposedName: 2a41c3e1-298f-48d1-a543-7d042a1164e2
     defaultValue: {fileID: 0}
 --- !u!114 &-245720600273432758
 MonoBehaviour:
@@ -623,7 +623,7 @@ MonoBehaviour:
     am: {fileID: 0}
     myFloat: 0
   am:
-    exposedName: 9d855b16-a2e8-4af0-9068-7fd265806cde
+    exposedName: 1fbe70a7-141c-42a3-a14a-79584e390a0c
     defaultValue: {fileID: 0}
 --- !u!114 &8255847118318204595
 MonoBehaviour:
@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d21dcc2386d650c4597f3633c75a1f98, type: 3}
-  m_Name: ayerAnimationon
+  m_Name: PlayerAnimationon
   m_EditorClassIdentifier: 
   m_Version: 3
   m_AnimClip: {fileID: 0}

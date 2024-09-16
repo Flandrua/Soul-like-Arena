@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WeaponManager : IActorManagerInterface
 {
-    private Collider weaponColL;
-    private Collider weaponColR;
+    [SerializeField]private Collider weaponColL;
+    [SerializeField] private Collider weaponColR;
 
     public GameObject whL;
     public GameObject whR;
@@ -36,6 +36,11 @@ public class WeaponManager : IActorManagerInterface
         {
             Debug.LogWarning(gameObject.name + " has no weaponHandleR ");
         }
+        EventManager.AddListener(EventCommon.WEAPON_DISABLE, WeaponDisable);
+    }
+    private void OnDestroy()
+    {
+        EventManager.RemoveListener(EventCommon.WEAPON_DISABLE, WeaponDisable);
     }
 
     public WeaponController BindWeaponController(GameObject targetObj)
