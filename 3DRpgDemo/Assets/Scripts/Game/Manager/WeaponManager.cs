@@ -36,11 +36,9 @@ public class WeaponManager : IActorManagerInterface
         {
             Debug.LogWarning(gameObject.name + " has no weaponHandleR ");
         }
-        EventManager.AddListener(EventCommon.WEAPON_DISABLE, WeaponDisable);
     }
     private void OnDestroy()
     {
-        EventManager.RemoveListener(EventCommon.WEAPON_DISABLE, WeaponDisable);
     }
 
     public WeaponController BindWeaponController(GameObject targetObj)

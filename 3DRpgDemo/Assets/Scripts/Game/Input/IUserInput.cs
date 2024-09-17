@@ -21,6 +21,8 @@ public abstract class IUserInput : MonoBehaviour
     protected bool lastAttack;
     public bool roll;
     public bool lockon;
+    public bool switchRightLock;
+    public bool switchLeftLock;
     public bool lb;
     public bool lt;
     /// <summary>

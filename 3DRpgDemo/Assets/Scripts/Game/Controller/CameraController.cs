@@ -19,9 +19,12 @@ public class CameraController : MonoBehaviour
     private GameObject cameraHandle;
     private float tempEulerX;
 
+    private bool switchFlag = true;
     private GameObject model;
     private GameObject camera;
     private Vector3 cameraDampVelocity;
+
+    public Vector3 boxSize = new Vector3(0.5f, 0.5f, 5f);
     [SerializeField]
     private LockTarget lockTarget;
     // Start is called before the first frame update
@@ -59,6 +62,22 @@ public class CameraController : MonoBehaviour
         }
         else
         {
+            if (pi.Jright > 0.9f && switchFlag)//如果没有时间间隔是否会导致目标切换太快？新功能导致不解锁
+            {
+                SwitchFlag();
+                //向右切换目标
+                LockTarget lt = GetLeftRightTarget(true);
+                if (lt == null) return;
+                LockProcessA(lt, true, true, isAI);
+            }
+            else if (pi.Jright < -0.9f && switchFlag)
+            {
+                SwitchFlag();
+                //向左切换目标
+                LockTarget rt = GetLeftRightTarget(false);
+                if (rt == null) return;
+                LockProcessA(rt, true, true, isAI);
+            }
             Vector3 tempForward = lockTarget.obj.transform.position - model.transform.position;
             tempForward.y = 0;
             playerHandle.transform.forward = tempForward;
@@ -72,14 +91,81 @@ public class CameraController : MonoBehaviour
             camera.transform.LookAt(cameraHandle.transform);
         }
     }
+    private void SwitchFlag()
+    {
+        switchFlag = false;
+        TimeManager.Instance.AddTask(0.2f, false, () => { switchFlag = true; }, this);
+    }
+    private LockTarget GetLeftRightTarget(bool isRight)
+    {
+        Collider[] cols = GetColsByCamera();
+        float closestLeftDistance = float.MaxValue;
+        float closestRightDistance = float.MaxValue;
+        Collider leftTarget = null;
+        Collider rightTarget = null;
+        Vector3 camOrigin1 = camera.transform.position; // 相机的位置
+        Vector3 camRight = camera.transform.right; // 相机的右向量
+        Vector3 player = model.transform.position; // 锁定目标的位置
+        foreach (var col in cols)
+        {
+            Collider colTransform = col;
+            Vector3 directionToTarget = colTransform.transform.position - player; // 从锁定目标到碰撞体的方向
+            float distance = directionToTarget.magnitude; // 距离
+
+            // 判断碰撞体在锁定目标的左侧还是右侧
+            float side = Vector3.Dot(camRight, directionToTarget);
+
+            if (side < 0)
+            {
+                // 在左侧
+                if (distance < closestLeftDistance)
+                {
+                    closestLeftDistance = distance;
+                    leftTarget = colTransform;
+                }
+            }
+            else
+            {
+                // 在右侧
+                if (distance < closestRightDistance)
+                {
+                    closestRightDistance = distance;
+                    rightTarget = colTransform;
+                }
+            }
+        }
+        if (isRight)
+        {
+            if (rightTarget == null) return null;
+            return new LockTarget(rightTarget.gameObject, rightTarget.bounds.extents.y);
+        }
+        else
+        {
+            if (leftTarget == null) return null;
+            return new LockTarget(leftTarget.gameObject, leftTarget.bounds.extents.y);
+        }
+
+
+    }
+
+    private Collider[] GetColsByCamera()
+    {
+        //以相机视线基础，实现锁定
+        Vector3 camOrigin1 = camera.transform.position;
+        return Physics.OverlapBox(camOrigin1, boxSize, camera.transform.rotation, LayerMask.GetMask(isAI ? "Player" : "Enemy"));
+    }
 
     public void LockUnlock()
     {
         //按右摇杆，转换锁定目标
-        Vector3 modelOrigin1 = model.transform.position;
-        Vector3 modelOrigin2 = modelOrigin1 + new Vector3(0, 1, 0);
-        Vector3 boxCenter = modelOrigin2 + model.transform.forward * 5.0f;
-        Collider[] cols = Physics.OverlapBox(boxCenter, new Vector3(0.5f, 0.5f, 5f), model.transform.rotation, LayerMask.GetMask(isAI ? "Player" : "Enemy"));
+
+        //以模型实视线基础，实现锁定
+        //Vector3 modelOrigin1 = model.transform.position;
+        //Vector3 modelOrigin2 = modelOrigin1 + new Vector3(0, 1, 0);
+        //Vector3 boxCenter = modelOrigin2 + model.transform.forward * 5.0f;
+        //Collider[] cols = Physics.OverlapBox(boxCenter, boxSize, model.transform.rotation, LayerMask.GetMask(isAI ? "Player" : "Enemy"));
+
+        Collider[] cols = GetColsByCamera();
         if (cols.Length == 0)
         {
             LockProcessA(null, false, false, isAI);
@@ -91,13 +177,38 @@ public class CameraController : MonoBehaviour
                 if (lockTarget != null && lockTarget.obj == col.gameObject)
                 {
                     LockProcessA(null, false, false, isAI);
-                    break;
+                    return;
                 }
-                LockProcessA(new LockTarget(col.gameObject, col.bounds.extents.y), true, true, isAI);
-                break;
             }
+            LockProcessA(new LockTarget(cols[0].gameObject, cols[0].bounds.extents.y), true, true, isAI);
+
         }
     }
+
+    // 在Scene视图中绘制Box
+    void OnDrawGizmos()
+    {
+        if (isAI) return;
+
+        if (Camera.main != null)
+        {
+            // 设置Gizmos颜色
+            Gizmos.color = Color.green;
+
+            // 获取摄像机位置和旋转
+            Vector3 boxCenter = Camera.main.transform.position;
+            boxCenter.z += boxSize.z / 2;
+            Vector3 boxRotation = Camera.main.transform.rotation.eulerAngles;
+            Quaternion boxOrientation = Quaternion.Euler(boxRotation);
+
+            // 绘制OverlapBox的线框
+            Gizmos.matrix = Matrix4x4.TRS(boxCenter, boxOrientation, Vector3.one);
+            Gizmos.DrawWireCube(Vector3.zero, boxSize);
+        }
+
+    }
+
+
 
     private void Update()
     {
