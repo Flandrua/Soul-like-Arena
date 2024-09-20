@@ -99,8 +99,8 @@ public class CameraController : MonoBehaviour
     private LockTarget GetLeftRightTarget(bool isRight)
     {
         Collider[] cols = GetColsByCamera();
-        float closestLeftDistance = float.MaxValue;
-        float closestRightDistance = float.MaxValue;
+        float closestLeftAngel = float.MaxValue;
+        float closestRightAngel = float.MaxValue;
         Collider leftTarget = null;
         Collider rightTarget = null;
         Vector3 camOrigin1 = camera.transform.position; // 相机的位置
@@ -108,28 +108,30 @@ public class CameraController : MonoBehaviour
         Vector3 player = model.transform.position; // 锁定目标的位置
         foreach (var col in cols)
         {
+            if (col.gameObject == lockTarget.obj) continue;
             Collider colTransform = col;
             Vector3 directionToTarget = colTransform.transform.position - player; // 从锁定目标到碰撞体的方向
-            float distance = directionToTarget.magnitude; // 距离
+            //float distance = directionToTarget.magnitude; // 距离                                                     
 
-            // 判断碰撞体在锁定目标的左侧还是右侧
-            float side = Vector3.Dot(camRight, directionToTarget);
+            float checkAngel = Vector3.Angle(model.transform.forward, directionToTarget);  //人物与目标的夹角来限定目标范围
+
+            float side = Vector3.Dot(camRight, directionToTarget);   // 判断碰撞体在锁定目标的左侧还是右侧
 
             if (side < 0)
             {
                 // 在左侧
-                if (distance < closestLeftDistance)
+                if (checkAngel < closestLeftAngel)
                 {
-                    closestLeftDistance = distance;
+                    closestLeftAngel = checkAngel;
                     leftTarget = colTransform;
                 }
             }
             else
             {
                 // 在右侧
-                if (distance < closestRightDistance)
+                if (checkAngel < closestRightAngel)
                 {
-                    closestRightDistance = distance;
+                    closestRightAngel = checkAngel;
                     rightTarget = colTransform;
                 }
             }
@@ -151,6 +153,7 @@ public class CameraController : MonoBehaviour
     private Collider[] GetColsByCamera()
     {
         //以相机视线基础，实现锁定
+        //实际上应该用射线和数学来算 raycast  把范围内的所有单位放进数组，然后按角度来算
         Vector3 camOrigin1 = camera.transform.position;
         return Physics.OverlapBox(camOrigin1, boxSize, camera.transform.rotation, LayerMask.GetMask(isAI ? "Player" : "Enemy"));
     }

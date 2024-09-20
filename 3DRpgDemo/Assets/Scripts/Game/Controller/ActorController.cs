@@ -329,7 +329,7 @@ public class ActorController : MonoBehaviour
     {
         pi.inputEnabled = false;
     }
-    public void OnUpdateRM(object _deltaPos)//用unity的传递消息的方法
+    public void OnUpdateRM(object _deltaPos)
     {
         if (CheckState("attack1hC"))
             deltaPos += (0.8f * deltaPos + 0.2f * (Vector3)_deltaPos) / 1.0f;

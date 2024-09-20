@@ -28,7 +28,7 @@ public class GameManager : MonoSingleton<GameManager>
         //LockUnlockCursor();
         InitWeaponFactory();
         wm.UpdateWeaponCollider("R", weaponFac.CreateWeapon("WeaponPrefab/Falchion", "R", wm));
-        wm.ChangeDualHands(true);
+        wm.ChangeDualHands(false);
 
     }
     public void LockUnlockCursor(bool flag = true)
@@ -44,10 +44,10 @@ public class GameManager : MonoSingleton<GameManager>
             wm.UpdateWeaponCollider("R", weaponFac.CreateWeapon("WeaponPrefab/Sword", "R", wm));
             wm.ChangeDualHands(false);
         }
-        if (GUI.Button(new Rect(10, 50, 150, 30), "R Falchion"))
+        if (GUI.Button(new Rect(10, 50, 150, 30), "R Halberd"))
         {
             wm.UnloadWeapon("R");
-            wm.UpdateWeaponCollider("R", weaponFac.CreateWeapon("WeaponPrefab/Falchion", "R", wm));
+            wm.UpdateWeaponCollider("R", weaponFac.CreateWeapon("WeaponPrefab/Halberd", "R", wm));
             wm.ChangeDualHands(true);
         }
         if (GUI.Button(new Rect(10, 90, 150, 30), "R Mace"))

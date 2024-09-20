@@ -16,10 +16,10 @@ public class ActorManager : MonoBehaviour
     public InteractionManager im;
 
     [Header("===Override Animators===")]
-    public AnimatorOverrideController oneHandAnim;
-    public AnimatorOverrideController twoHandAnim;
+    public AnimatorOverrideController swordAnim;
+    public AnimatorOverrideController lanceAnim;
     // Start is called before the first frame update
-    private void Awake()
+    private void Awake() 
     {
         ac = GetComponent<ActorController>();
         GameObject model = ac.model;
@@ -50,6 +50,8 @@ public class ActorManager : MonoBehaviour
             {
                 if (im.overlapEcastms[0].eventName == "frontStab")
                 {
+                    transform.position = im.overlapEcastms[0].am.transform.position + im.overlapEcastms[0].am.transform.TransformVector(im.overlapEcastms[0].offset);
+                    ac.model.transform.LookAt(im.overlapEcastms[0].am.transform, Vector3.up);
                     dm.PlayFrontStab("frontStab", this, im.overlapEcastms[0].am);
 
                 }
@@ -74,6 +76,12 @@ public class ActorManager : MonoBehaviour
                         dm.PlayFrontStab("leverUp", this, im.overlapEcastms[0].am);
 
                     }
+                }
+                else if(im.overlapEcastms[0].eventName == "backStab")
+                {
+                    transform.position = im.overlapEcastms[0].am.transform.position + im.overlapEcastms[0].am.transform.TransformVector(im.overlapEcastms[0].offset);
+                    ac.model.transform.LookAt(im.overlapEcastms[0].am.transform, Vector3.up);
+                    dm.PlayFrontStab("backStab", this, im.overlapEcastms[0].am);
                 }
             }
         }
@@ -183,11 +191,11 @@ public class ActorManager : MonoBehaviour
     {
         if (dualOn)
         {
-            ac.anim.runtimeAnimatorController = twoHandAnim;
+            ac.anim.runtimeAnimatorController = lanceAnim;
         }
         else
         {
-            ac.anim.runtimeAnimatorController = oneHandAnim;
+            ac.anim.runtimeAnimatorController = swordAnim;
         }
     }
 }

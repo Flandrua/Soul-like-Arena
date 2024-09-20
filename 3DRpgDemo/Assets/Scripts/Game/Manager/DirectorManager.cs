@@ -12,6 +12,7 @@ public class DirectorManager : IActorManagerInterface
     public TimelineAsset frontStab;
     public TimelineAsset openBox;
     public TimelineAsset leverUp;
+    public TimelineAsset backStab;
     [Header("===Assets Settings===")]
     public ActorManager attacker;
     public ActorManager victim;
@@ -100,6 +101,10 @@ public class DirectorManager : IActorManagerInterface
                 }
             }
         }
+        else if (timelineName == "backStab")
+        {
+
+        }
         else if (timelineName == "openBox")
         {
             pd.playableAsset = Instantiate(openBox);
@@ -178,6 +183,7 @@ public class DirectorManager : IActorManagerInterface
                 }
             }
         }
+
         pd.Evaluate();
         pd.Play();
     }

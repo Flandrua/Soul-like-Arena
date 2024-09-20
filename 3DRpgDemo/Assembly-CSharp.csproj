@@ -115,6 +115,7 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Gesture\SwipeGesture.cs" />
     <Compile Include="Assets\Scripts\Game\FSM\FSMOnEnter.cs" />
     <Compile Include="Assets\Scripts\Game\Timeline\MyPlayable\MyPlayableBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Game\Controller\AnimationEventController.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Event\InputEvent.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\Video\VideoScriptPlayableTrack.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\Gears\GearText.cs" />
