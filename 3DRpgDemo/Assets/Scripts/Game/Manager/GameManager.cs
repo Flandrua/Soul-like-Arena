@@ -27,8 +27,9 @@ public class GameManager : MonoSingleton<GameManager>
     {
         //LockUnlockCursor();
         InitWeaponFactory();
-        wm.UpdateWeaponCollider("R", weaponFac.CreateWeapon("WeaponPrefab/Falchion", "R", wm));
-        wm.ChangeDualHands(false);
+        wm.UpdateWeaponCollider("R", weaponFac.CreateWeapon("WeaponPrefab/Sword", "R", wm));
+        wm.UpdateWeaponCollider("R", weaponFac.CreateWeapon("WeaponPrefab/Shield", "L", wm));
+        wm.ChangeToLancer(false);
 
     }
     public void LockUnlockCursor(bool flag = true)
@@ -42,24 +43,15 @@ public class GameManager : MonoSingleton<GameManager>
         {
             wm.UnloadWeapon("R");
             wm.UpdateWeaponCollider("R", weaponFac.CreateWeapon("WeaponPrefab/Sword", "R", wm));
-            wm.ChangeDualHands(false);
+            wm.UpdateWeaponCollider("R", weaponFac.CreateWeapon("WeaponPrefab/Shield", "L", wm));
+            wm.ChangeToLancer(false);
         }
-        if (GUI.Button(new Rect(10, 50, 150, 30), "R Halberd"))
+        if (GUI.Button(new Rect(10, 50, 150, 30), "R Pike"))
         {
+            wm.UnloadWeapon("L");
             wm.UnloadWeapon("R");
-            wm.UpdateWeaponCollider("R", weaponFac.CreateWeapon("WeaponPrefab/Halberd", "R", wm));
-            wm.ChangeDualHands(true);
-        }
-        if (GUI.Button(new Rect(10, 90, 150, 30), "R Mace"))
-        {
-            wm.UnloadWeapon("R");
-            wm.UpdateWeaponCollider("R", weaponFac.CreateWeapon("WeaponPrefab/Mace", "R", wm));
-            wm.ChangeDualHands(false);
-        }
-        if (GUI.Button(new Rect(10, 130, 150, 30), "R Clear"))
-        {
-            wm.UnloadWeapon("R");
-            wm.ChangeDualHands(false);
+            wm.UpdateWeaponCollider("R", weaponFac.CreateWeapon("WeaponPrefab/Pike", "R", wm));
+            wm.ChangeToLancer(true);
         }
     }
 

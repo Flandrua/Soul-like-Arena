@@ -11,3 +11,9 @@ public enum SkillType
     Active,
     Passive
 }
+
+public enum CharacterClass
+{
+    Warrior,
+    Lancer,
+}

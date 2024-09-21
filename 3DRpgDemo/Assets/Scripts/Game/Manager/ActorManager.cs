@@ -187,9 +187,9 @@ public class ActorManager : MonoBehaviour
             ac.SetBool("lock", value);
     }
 
-    public void ChangeDualHands(bool dualOn)
+    public void ChangeToLancer(bool isLancer)
     {
-        if (dualOn)
+        if (isLancer)
         {
             ac.anim.runtimeAnimatorController = lanceAnim;
         }

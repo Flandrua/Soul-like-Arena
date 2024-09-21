@@ -15,4 +15,6 @@ public class WeaponController : MonoBehaviour
     {
         return wd.ATK + wm.am.sm.ATK;
     }
+    public float GetDEF() { return wd.DEF; }
+    public CharacterClass GetClass() { return wd.pClass; }
 }

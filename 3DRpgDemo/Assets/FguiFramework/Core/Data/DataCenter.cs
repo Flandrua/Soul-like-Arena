@@ -23,6 +23,7 @@ public class CharacterData
 
     public List<ItemData> itemBag;
     public List<SkillData> skillData;
+
 }
 
 public class ItemData

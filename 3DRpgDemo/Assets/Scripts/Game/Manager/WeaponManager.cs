@@ -112,8 +112,8 @@ public class WeaponManager : IActorManagerInterface
      
     }
 
-    public void ChangeDualHands(bool dualOn)
+    public void ChangeToLancer(bool isLancer)
     {
-       am.ChangeDualHands(dualOn);
+       am.ChangeToLancer(isLancer);
     }
 }

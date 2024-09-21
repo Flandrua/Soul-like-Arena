@@ -9,10 +9,10 @@ public class DirectorManager : IActorManagerInterface
 {
     public PlayableDirector pd;
     [Header("===Timeline assets===")]
-    public TimelineAsset frontStab;
+    public TimelineAsset warriorExecute;
     public TimelineAsset openBox;
     public TimelineAsset leverUp;
-    public TimelineAsset backStab;
+    public TimelineAsset lanceExecute;
     [Header("===Assets Settings===")]
     public ActorManager attacker;
     public ActorManager victim;
@@ -58,13 +58,16 @@ public class DirectorManager : IActorManagerInterface
         else return false;
     }
 
-    public void PlayFrontStab(string timelineName, ActorManager attacker, ActorManager victim)
+    public void PlayFrontStab(string timelineName, ActorManager attacker, ActorManager victim)//被处决就会直接死
     {
         //if (pd.playableAsset != null) return;
         //if (pd.state == PlayState.Playing) return;
         if (timelineName == "frontStab")
         {
-            pd.playableAsset = Instantiate(frontStab);
+            if (attacker.wm.wcR.GetClass().Equals(CharacterClass.Warrior))
+                pd.playableAsset = Instantiate(warriorExecute);
+            if (attacker.wm.wcR.GetClass().Equals(CharacterClass.Lancer))
+                pd.playableAsset = Instantiate(lanceExecute);
 
             TimelineAsset timeline = (TimelineAsset)pd.playableAsset;
             foreach (var track in timeline.GetOutputTracks())
@@ -100,10 +103,6 @@ public class DirectorManager : IActorManagerInterface
                     pd.SetGenericBinding(track, victim.ac.anim);
                 }
             }
-        }
-        else if (timelineName == "backStab")
-        {
-
         }
         else if (timelineName == "openBox")
         {

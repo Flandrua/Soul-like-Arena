@@ -51,9 +51,13 @@ public class WeaponFactory
             if (path + weapon.desc == weaponName)
             {
                 wd.ATK = weapon.ATK;
+                wd.DEF = weapon.DEF;
+                wd.pClass = (CharacterClass)System.Enum.Parse(typeof(CharacterClass), weapon.Pclass);
             }
         }
+
        wc.wd = wd;
+
         if (wd.ATK == -1) Debug.LogError(weaponName + " cant find data");
     }
 

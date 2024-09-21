@@ -20,5 +20,7 @@ namespace Configs
         public float ATK;
         //防御
         public float DEF;
+        //职业
+        public string Pclass;
     }
 }
