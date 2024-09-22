@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class ActorManager : MonoBehaviour
 {
     public ActorController ac;
+    public DeathDyingOut deathEffect;
     [Header("=== Auto Generate if Null ===")]
     public BattleManager bm;
     public WeaponManager wm;
@@ -20,6 +21,10 @@ public class ActorManager : MonoBehaviour
     public AnimatorOverrideController lanceAnim;
     // Start is called before the first frame update
     private void Awake() 
+    {
+        initManager();
+    }
+    public void initManager()
     {
         ac = GetComponent<ActorController>();
         GameObject model = ac.model;
@@ -40,6 +45,13 @@ public class ActorManager : MonoBehaviour
         im = Bind<InteractionManager>(sensor);
         ac.onAction += DoAction;
 
+        //sm单独自己初始化 ac初始化所有controller
+        wm.initManager();//wm中初始化wc
+        bm.initManager();
+        dm.initManager();
+        im.initManager();
+        ac.am = this;
+        ac.initController();
 
     }
     public void DoAction()
@@ -173,13 +185,15 @@ public class ActorManager : MonoBehaviour
     }
     public void Die()
     {
+        sm.HP= 0;
         ac.IssueTrigger("die");
         ac.pi.inputEnabled = false;
-        if (ac.camcon.lockState == true)
+        if (ac.camController.lockState == true)
         {
-            ac.camcon.LockUnlock();
+            ac.camController.LockUnlock();
         }
-        ac.camcon.enabled = false;
+        ac.camController.enabled = false;
+        deathEffect.death = true;
     }
     public void LockUnlockActorController(bool value)
     {

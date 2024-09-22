@@ -8,7 +8,11 @@ public class TriggerControll : MonoBehaviour
 
     private void Awake()
     {
-        anim = GetComponent<Animator>(); 
+        initTriggerController();
+    }
+    public void initTriggerController()
+    {
+        anim = GetComponent<Animator>();
     }
     public void ResetTrigger(string triggerName)
     {

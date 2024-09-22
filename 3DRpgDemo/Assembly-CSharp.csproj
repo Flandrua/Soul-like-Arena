@@ -298,7 +298,7 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\GTextInput.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\Relations.cs" />
     <Compile Include="Assets\Scripts\Game\MyButton.cs" />
-    <Compile Include="Assets\Scripts\Game\Manager\EventCasterManager.cs" />
+    <Compile Include="Assets\Scripts\Game\Controller\EventCasterController.cs" />
     <Compile Include="Assets\FguiFramework\Core\Manager\UIManager\UIManager2D.cs" />
     <Compile Include="Assets\Scripts\Game\FSM\FSMOnExit.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\Text\BitmapFont.cs" />
@@ -333,6 +333,10 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\Text\TextField.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Tween\TweenValue.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
+    <Compile Include="Assets\Scripts\Game\DeathDyingOut.cs" />
+    <Compile Include="Assets\Scripts\Game\Pool\EnemyPool.cs" />
+    <Compile Include="Assets\Scripts\Game\Factory\EnemyFactory.cs" />
+    <Compile Include="Assets\Scripts\Configs\CfgEnemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\ava\素材杂项\@ Xxuebi\Shader\UVMove_Add.shader" />

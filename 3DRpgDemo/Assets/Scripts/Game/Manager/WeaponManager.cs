@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponManager : IActorManagerInterface
 {
-    [SerializeField]private Collider weaponColL;
+    [SerializeField] private Collider weaponColL;
     [SerializeField] private Collider weaponColR;
 
     public GameObject whL;
@@ -15,7 +15,11 @@ public class WeaponManager : IActorManagerInterface
 
     private void Start()
     {
+        initManager();
+    }
 
+    public void initManager()
+    {
         try
         {
             whL = transform.DeepFind("weaponHandleL").gameObject;
@@ -50,11 +54,12 @@ public class WeaponManager : IActorManagerInterface
             tempWc = targetObj.AddComponent<WeaponController>();
         }
         tempWc.wm = this;
+        tempWc.initController();
         return tempWc;
     }
     public void WeaponEnable()
     {
-        if (am.ac.CheckStateTag("attackL"))
+        if (am.ac.CheckStateTag("attackL")||am.ac.CheckState("attack1hC"))
         {
             weaponColL.enabled = true;
         }
@@ -64,13 +69,13 @@ public class WeaponManager : IActorManagerInterface
         }
 
     }
-    public void UpdateWeaponCollider(string side,Collider col)
+    public void UpdateWeaponCollider(string side, Collider col)
     {
         if (side == "L")
         {
             weaponColL = col;
         }
-        else if(side == "R")
+        else if (side == "R")
         {
             weaponColR = col;
         }
@@ -78,9 +83,9 @@ public class WeaponManager : IActorManagerInterface
 
     public void UnloadWeapon(string side)
     {
-        if(side=="L")
+        if (side == "L")
         {
-            foreach( Transform trans in whL.transform)
+            foreach (Transform trans in whL.transform)
             {
                 weaponColL = null;
                 wcL.wd = null;
@@ -91,7 +96,7 @@ public class WeaponManager : IActorManagerInterface
         {
             foreach (Transform trans in whR.transform)
             {
-                weaponColR=null;
+                weaponColR = null;
                 wcR.wd = null;
                 Destroy(trans.gameObject);
             }
@@ -99,8 +104,10 @@ public class WeaponManager : IActorManagerInterface
     }
     public void WeaponDisable()
     {
-        weaponColL.enabled = false;
-        weaponColR.enabled = false;
+        if (weaponColL != null)
+            weaponColL.enabled = false;
+        if (weaponColR != null)
+            weaponColR.enabled = false;
     }
     public void CounterBackEnable()
     {
@@ -109,11 +116,11 @@ public class WeaponManager : IActorManagerInterface
     public void CounterBackDisable()
     {
         am.sm.SetIsCounterBack(false);
-     
+
     }
 
     public void ChangeToLancer(bool isLancer)
     {
-       am.ChangeToLancer(isLancer);
+        am.ChangeToLancer(isLancer);
     }
 }

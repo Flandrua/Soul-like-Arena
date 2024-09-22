@@ -9,6 +9,10 @@ public class WeaponController : MonoBehaviour
 
     private void Awake()
     {
+        initController();
+    }
+    public void initController()
+    {
         wd = GetComponentInChildren<WeaponData>();
     }
     public float GetATK()

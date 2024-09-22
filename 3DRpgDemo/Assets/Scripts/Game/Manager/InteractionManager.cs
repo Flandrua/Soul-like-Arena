@@ -6,13 +6,16 @@ using UnityEngine;
 public class InteractionManager : IActorManagerInterface
 {
     private CapsuleCollider interCol;
-    public List<EventCasterManager> overlapEcastms=new List<EventCasterManager>();
+    public List<EventCasterController> overlapEcastms=new List<EventCasterController>();
     // Start is called before the first frame update
     void Start()
     {
+        initManager();
+    }
+    public void initManager()
+    {
         interCol = GetComponent<CapsuleCollider>();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -21,7 +24,7 @@ public class InteractionManager : IActorManagerInterface
 
     private void OnTriggerEnter(Collider other)
     {
-        EventCasterManager[] ecasterms = other.GetComponents<EventCasterManager>();
+        EventCasterController[] ecasterms = other.GetComponents<EventCasterController>();
         foreach(var ecasterm  in ecasterms)
         {
             if (!overlapEcastms.Contains(ecasterm))
@@ -33,7 +36,7 @@ public class InteractionManager : IActorManagerInterface
     }
     private void OnTriggerExit(Collider other)
     {
-        EventCasterManager[] ecasterms = other.GetComponents<EventCasterManager>();
+        EventCasterController[] ecasterms = other.GetComponents<EventCasterController>();
         foreach (var ecasterm in ecasterms)
         {
             if (overlapEcastms.Contains(ecasterm))

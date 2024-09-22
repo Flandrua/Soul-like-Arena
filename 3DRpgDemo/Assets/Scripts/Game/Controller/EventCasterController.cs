@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventCasterManager : IActorManagerInterface
+public class EventCasterController : IActorManagerInterface
 {
     public string eventName;
     public bool active = false;
@@ -12,9 +12,13 @@ public class EventCasterManager : IActorManagerInterface
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+    public void initController()
+    {
         if (am == null)
         {
-            am =GetComponentInParent<ActorManager>();
+            am = GetComponentInParent<ActorManager>();
         }
     }
 

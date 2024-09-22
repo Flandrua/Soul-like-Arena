@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class StateManager : IActorManagerInterface
@@ -31,6 +32,12 @@ public class StateManager : IActorManagerInterface
 
     private void Start()
     {
+        initData(HPMax, ATK);
+    }
+    public void initData(float hpMax,float atk)//µ•∂¿≥ı ºªØ
+    {
+        ATK = atk;
+        HPMax= hpMax;
         HP = HPMax;
     }
 
@@ -66,8 +73,5 @@ public class StateManager : IActorManagerInterface
         isCounterBackEnable = value;
     }
     // Start is called before the first frame update
-    public void Test()
-    {
-        print("sm test");
-    }
+    
 }

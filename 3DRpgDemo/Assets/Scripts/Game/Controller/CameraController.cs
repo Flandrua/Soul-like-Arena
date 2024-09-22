@@ -30,12 +30,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        cameraHandle = transform.parent.gameObject;
-        playerHandle = cameraHandle.transform.parent.gameObject;
-        tempEulerX = 20;
-        ActorController ac = playerHandle.GetComponent<ActorController>();
-        model = ac.model;
-        pi = ac.pi;
+        initController();
         if (!isAI)
         {
             camera = Camera.main.gameObject;
@@ -44,6 +39,16 @@ public class CameraController : MonoBehaviour
         lockState = false;
 
 
+    }
+
+    public void initController()
+    {
+        cameraHandle = transform.parent.gameObject;
+        playerHandle = cameraHandle.transform.parent.gameObject;
+        tempEulerX = 20;
+        ActorController ac = playerHandle.GetComponent<ActorController>();
+        model = ac.model;
+        pi = ac.pi;
     }
 
 

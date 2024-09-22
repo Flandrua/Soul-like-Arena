@@ -1,0 +1,28 @@
+{
+  "mDataMap":{
+  "1":  {
+    "id":1,
+    "desc":"ybot",
+    "name":"ybotRed",
+    "HP":100,
+    "ATK":0,
+    "pClass":"Warrior"
+   },
+  "2":  {
+    "id":2,
+    "desc":"ybot",
+    "name":"ybotGreen",
+    "HP":200,
+    "ATK":0,
+    "pClass":"Warrior"
+   },
+  "3":  {
+    "id":3,
+    "desc":"ybot",
+    "name":"ybotYellow",
+    "HP":100,
+    "ATK":0,
+    "pClass":"Lancer"
+   }
+  }
+}

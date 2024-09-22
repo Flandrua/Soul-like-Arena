@@ -10,6 +10,10 @@ public class BattleManager : IActorManagerInterface
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+    public void initManager()
+    {
         defCol = GetComponent<CapsuleCollider>();
         defCol.center = Vector3.up * 1.0f;
         defCol.height = 2.0f;

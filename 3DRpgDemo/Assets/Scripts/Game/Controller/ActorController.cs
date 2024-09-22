@@ -6,7 +6,11 @@ using UnityEngine;
 public class ActorController : MonoBehaviour
 {
     public GameObject model;
-    public CameraController camcon;
+    public EventCasterController casterController;
+    public CameraController camController;
+    private RootMotionControll motionController;
+    private TriggerControll triggerController;
+    public ActorManager am;//am中已经指定这个am了
     public IUserInput pi;
     public float walkSpeed = 2.0f;
     public float runMultiplier = 2.0f;
@@ -34,6 +38,10 @@ public class ActorController : MonoBehaviour
     public event OnActionDelegate onAction;
     private void Awake()
     {
+        initController();
+    }
+    public void initController()
+    {
         IUserInput[] inputs = GetComponents<IUserInput>();
         foreach (var input in inputs)
         {
@@ -46,7 +54,12 @@ public class ActorController : MonoBehaviour
         anim = model.GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
-
+        motionController = model.GetComponent<RootMotionControll>();
+        triggerController = model.GetComponent<TriggerControll>();
+        camController.initController();
+        motionController.initController();
+        triggerController.initTriggerController();
+        casterController.initController();
     }
     void Start()
     {
@@ -62,9 +75,9 @@ public class ActorController : MonoBehaviour
     {
         if (pi.lockon)
         {
-            camcon.LockUnlock();
+            camController.LockUnlock();
         }
-        if (camcon.lockState == false)
+        if (camController.lockState == false)
         {
             anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), ((pi.run) ? 2.0f : 1.0f), 0.2f));
             anim.SetFloat("right", 0);
@@ -144,7 +157,7 @@ public class ActorController : MonoBehaviour
         }
 
 
-        if (camcon.lockState == false)
+        if (camController.lockState == false)
         {
             if (pi.inputEnabled == true)
             {
@@ -336,8 +349,13 @@ public class ActorController : MonoBehaviour
     }
     public void OnStunnedEnter()
     {
+        casterController.gameObject.SetActive(true);
         pi.inputEnabled = false;
         planarVec = Vector3.zero;
+    }
+    public void OnStunnedExit()
+    {
+        casterController.gameObject.SetActive(false);
     }
 
     public void OnCounterBackEnter()

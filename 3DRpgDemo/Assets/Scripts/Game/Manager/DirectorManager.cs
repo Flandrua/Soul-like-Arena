@@ -19,8 +19,7 @@ public class DirectorManager : IActorManagerInterface
     // Start is called before the first frame update
     void Start()
     {
-        pd = GetComponent<PlayableDirector>();
-        pd.playOnAwake = false;
+
         //pd.playableAsset = Instantiate(frontStab);
         //foreach (var track in pd.playableAsset.outputs)
         //{
@@ -43,6 +42,11 @@ public class DirectorManager : IActorManagerInterface
         //}
     }
 
+    public void initManager()
+    {
+        pd = GetComponent<PlayableDirector>();
+        pd.playOnAwake = false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -90,6 +94,7 @@ public class DirectorManager : IActorManagerInterface
                     {
                         MyPlayableClip myclip = (MyPlayableClip)clip.asset;
                         MyPlayableBehaviour mybehav = myclip.template;
+                        mybehav.stateLock = true;
                         myclip.am.exposedName = System.Guid.NewGuid().ToString();
                         pd.SetReferenceValue(myclip.am.exposedName, victim);
                     }

@@ -26356,7 +26356,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.11666667
+  - time: 0.5
     functionName: CounterBackDisable
     data: 
     objectReferenceParameter: {fileID: 0}

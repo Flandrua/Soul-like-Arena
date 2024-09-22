@@ -4,15 +4,22 @@
     "id":1,
     "desc":"Sword",
     "ATK":10,
-    "DEF":10,
+    "DEF":0,
     "Pclass":"Warrior"
    },
   "2":  {
     "id":2,
-    "desc":"Halberd",
+    "desc":"Pike",
     "ATK":10,
-    "DEF":10,
+    "DEF":0,
     "Pclass":"Lancer"
+   },
+  "3":  {
+    "id":3,
+    "desc":"Shield",
+    "ATK":10,
+    "DEF":0,
+    "Pclass":"Warrior"
    }
   }
 }

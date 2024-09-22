@@ -13,6 +13,7 @@ public class DataManager : Singleton<DataManager>
         _cfgGlobal = SetConfigData<CfgGlobal>("CfgGlobal");
         _cfgLanguage = SetConfigData<CfgLanguage>("CfgLanguage");
         _cfgWeapon = SetConfigData<CfgWeapon>("CfgWeapon");
+        _cfgEnemy = SetConfigData<CfgEnemy>("CfgEnemy");
     }
 
     private CfgGlobal _cfgGlobal;
@@ -21,11 +22,14 @@ public class DataManager : Singleton<DataManager>
 
     private CfgWeapon _cfgWeapon;
 
+    private CfgEnemy _cfgEnemy;
+
     public CfgGlobal CfgGlobal { get => _cfgGlobal; }
 
     public CfgLanguage CfgLanguage { get => _cfgLanguage; }
 
     public CfgWeapon CfgWeapon { get => _cfgWeapon; }
+    public CfgEnemy CfgEnemy { get => _cfgEnemy; }
 
     private T SetConfigData<T>(string name)
     {

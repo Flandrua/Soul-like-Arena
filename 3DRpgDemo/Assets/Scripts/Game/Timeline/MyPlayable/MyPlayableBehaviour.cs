@@ -8,7 +8,7 @@ public class MyPlayableBehaviour : PlayableBehaviour
 {
     public ActorManager am;
     public float myFloat;
-
+    public bool stateLock = false;  
     //PlayableDirector pd;
     public override void OnPlayableCreate(Playable playable)
     {
@@ -30,6 +30,10 @@ public class MyPlayableBehaviour : PlayableBehaviour
     }
     public override void OnBehaviourPause(Playable playable, FrameData info)
     {
+        if (stateLock) {
+            am.sm.HP = 0;
+            return; 
+        }
         am.LockUnlockActorController(false);
     }
     public override void PrepareFrame(Playable playable, FrameData info)
