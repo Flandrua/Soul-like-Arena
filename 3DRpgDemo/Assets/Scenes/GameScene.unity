@@ -721,6 +721,7 @@ MonoBehaviour:
   playerWM: {fileID: 7665603636183976041}
   spawn1: {fileID: 1868911217}
   spawn2: {fileID: 788151620}
+  enemyPool: {fileID: 1186137279}
 --- !u!1001 &19842625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37827,8 +37828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7be33159298774e94f4f2370fa2dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn1: {fileID: 1868911217}
-  spawn2: {fileID: 788151620}
+  poolList: []
 --- !u!1001 &1186478225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78628,6 +78628,7 @@ MonoBehaviour:
   - {fileID: 9114025278784459062}
   - {fileID: 4406166594283174827}
   alpha: 1
+  isAI: 0
   death: 0
 --- !u!1 &7689844514861545750
 GameObject:

@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
-public class EnemyPool : MonoBehaviour
+public class EnemyPool : MonoSingleton<EnemyPool>
 {
-    public GameObject spawn1;
-    public GameObject spawn2;
+    public List<GameObject> poolList;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +16,34 @@ public class EnemyPool : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void BackToPool(GameObject enemy)
+    {
+        poolList.Add(enemy);
+        enemy.transform.parent=this.transform;
+        enemy.transform.localPosition = Vector3.zero;
+        enemy.SetActive(false);
+    }
+    public GameObject GetEnemy(string name)
+    {
+        if (poolList.Count > 0)
+        {
+            foreach(GameObject obj in poolList)
+            {
+                if(obj.name.Contains(name))
+                {
+                    obj.SetActive(true);
+                    ActorManager am = obj.GetComponent<ActorManager>();
+                    StateManager sm = am.sm;
+                    am.deathEffect.ResetAlpha();
+                    am.initManager();
+                    sm.initData(sm.HPMax, sm.ATK);
+                    poolList.Remove(obj);
+                    return obj;
+                }
+            }
+        }
+        return null;
     }
 }

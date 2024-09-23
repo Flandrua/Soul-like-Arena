@@ -8,6 +8,7 @@ public class GameManager : MonoSingleton<GameManager>
     public WeaponManager playerWM;
     public GameObject spawn1;
     public GameObject spawn2;
+    public EnemyPool enemyPool;
     private WeaponFactory weaponFac;
     private EnemyFactory enemyFac;
     /// <summary>
@@ -18,7 +19,7 @@ public class GameManager : MonoSingleton<GameManager>
     public override void Init()
     {
 
-        DontDestroyOnLoad(this);
+
 
     }
 
@@ -52,25 +53,29 @@ public class GameManager : MonoSingleton<GameManager>
         if (GUI.Button(new Rect(10, 50, 150, 30), "R Pike"))
         {
             CreateWeapon(playerWM, true);
-        }      
+        }
         if (GUI.Button(new Rect(10, 90, 150, 30), "SpawnEnemyRed"))
         {
-            CreateEnemy("Enemy/ybotRed", CharacterClass.Warrior, spawn1);
+            CreateEnemy("ybotRed", CharacterClass.Warrior, spawn1);
         }
     }
 
-    public void CreateEnemy(string enemyName, CharacterClass pClass,GameObject parent)
+    public void CreateEnemy(string enemyName, CharacterClass pClass, GameObject parent)
     {
-        GameObject enemy = enemyFac.CreateEnemy(enemyName);
-        WeaponManager wm = enemy.GetComponent<ActorManager>().wm;
-        switch (pClass)
+        GameObject enemy = enemyPool.GetEnemy(enemyName);
+        if (enemy == null)
         {
-            case CharacterClass.Warrior:
-                CreateWeapon(wm, false);
-                break;
-            case CharacterClass.Lancer:
-                CreateWeapon(wm, true);
-                break;
+            enemy = enemyFac.CreateEnemy(enemyName);
+            WeaponManager wm = enemy.GetComponent<ActorManager>().wm;
+            switch (pClass)
+            {
+                case CharacterClass.Warrior:
+                    CreateWeapon(wm, false);
+                    break;
+                case CharacterClass.Lancer:
+                    CreateWeapon(wm, true);
+                    break;
+            }
         }
         enemy.transform.SetParent(parent.transform);
         enemy.transform.localPosition = Vector3.zero;

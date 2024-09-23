@@ -52,7 +52,7 @@ public class ActorManager : MonoBehaviour
         im.initManager();
         ac.am = this;
         ac.initController();
-
+        deathEffect.isAI= ac.camController.isAI;
     }
     public void DoAction()
     {

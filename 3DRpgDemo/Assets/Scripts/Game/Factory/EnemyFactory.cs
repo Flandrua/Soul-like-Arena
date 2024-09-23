@@ -17,11 +17,11 @@ public class EnemyFactory : MonoBehaviour
 
     public GameObject CreateEnemy(string enemyName)
     {
-        GameObject preafab = Resources.Load(enemyName) as GameObject;
+        GameObject preafab = Resources.Load(path + enemyName) as GameObject;
         GameObject obj = GameObject.Instantiate(preafab);
         foreach (var enemy in enemyDB.mDataMap.Values)
         {
-            if(enemyName ==path+enemy.name)
+            if(enemyName ==enemy.name)
             {
                 //应用敌人数据
                 ActorManager am = obj.GetComponent<ActorManager>();
