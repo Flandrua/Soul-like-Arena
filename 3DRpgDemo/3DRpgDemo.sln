@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{CA80640D-53D1-6FA5-8CDA-14D59C0C9C0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThryAssemblyDefinition", "ThryAssemblyDefinition.csproj", "{C6096340-13CC-A6AC-C1BF-6E73353C1009}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poi.Tools", "Poi.Tools.csproj", "{FD682C5E-E6B5-AE6B-4503-E5D5CC4C409C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{CA80640D-53D1-6FA5-8CDA-14D59C0C9C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA80640D-53D1-6FA5-8CDA-14D59C0C9C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA80640D-53D1-6FA5-8CDA-14D59C0C9C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6096340-13CC-A6AC-C1BF-6E73353C1009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6096340-13CC-A6AC-C1BF-6E73353C1009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6096340-13CC-A6AC-C1BF-6E73353C1009}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6096340-13CC-A6AC-C1BF-6E73353C1009}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD682C5E-E6B5-AE6B-4503-E5D5CC4C409C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD682C5E-E6B5-AE6B-4503-E5D5CC4C409C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD682C5E-E6B5-AE6B-4503-E5D5CC4C409C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD682C5E-E6B5-AE6B-4503-E5D5CC4C409C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

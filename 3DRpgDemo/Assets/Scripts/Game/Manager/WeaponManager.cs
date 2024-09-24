@@ -59,9 +59,10 @@ public class WeaponManager : IActorManagerInterface
     }
     public void WeaponEnable()
     {
-        if (am.ac.CheckStateTag("attackL")||am.ac.CheckState("attack1hC"))
+        if (am.ac.CheckStateTag("attackL") || am.ac.CheckState("attack1hC"))
         {
-            weaponColL.enabled = true;
+            if (weaponColL != null)
+                weaponColL.enabled = true;
         }
         else
         {

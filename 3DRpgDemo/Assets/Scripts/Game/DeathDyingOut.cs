@@ -24,10 +24,10 @@ public class DeathDyingOut : MonoBehaviour
         {
             foreach (SkinnedMeshRenderer mr in mr)
             {
-                Color temp = mr.material.GetColor("_BaseColor");
+                Color temp = mr.material.GetColor("_Color");
                 temp.a = alpha;
                 alpha -= Time.deltaTime / deathDuration;
-                mr.material.SetColor("_BaseColor", temp);
+                mr.material.SetColor("_Color", temp);
             }
             if (alpha < 0.1f)
             {
@@ -49,9 +49,9 @@ public class DeathDyingOut : MonoBehaviour
         alpha=1.0f;
         foreach (SkinnedMeshRenderer mr in mr)
         {
-            Color temp = mr.material.GetColor("_BaseColor");
+            Color temp = mr.material.GetColor("_Color");
             temp.a = alpha;
-            mr.material.SetColor("_BaseColor", temp);
+            mr.material.SetColor("_Color", temp);
         }
     }
 

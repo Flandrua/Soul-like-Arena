@@ -49,7 +49,6 @@ Material:
     - _Opacity: 20
     - _PathSet0ifyouuseinPS: 0
     - _Usedepth: 0
-    - _Usesmoothdissolve: 0
     m_Colors:
     - _AddColor: {r: 0.6367924, g: 0.83823544, b: 1, a: 1}
     - _Remap: {r: -0.3, g: 1, b: 0, a: 0}
