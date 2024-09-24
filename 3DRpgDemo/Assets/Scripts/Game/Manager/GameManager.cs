@@ -66,7 +66,9 @@ public class GameManager : MonoSingleton<GameManager>
         if (enemy == null)
         {
             enemy = enemyFac.CreateEnemy(enemyName);
-            WeaponManager wm = enemy.GetComponent<ActorManager>().wm;
+            ActorManager am = enemy.GetComponent<ActorManager>();
+            WeaponManager wm = am.wm;
+            VFXController vfxc = am.ac.vfxController;
             switch (pClass)
             {
                 case CharacterClass.Warrior:

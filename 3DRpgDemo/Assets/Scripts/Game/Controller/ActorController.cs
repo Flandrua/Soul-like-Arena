@@ -10,6 +10,7 @@ public class ActorController : MonoBehaviour
     public CameraController camController;
     private RootMotionControll motionController;
     private TriggerControll triggerController;
+    public VFXController vfxController;
     public ActorManager am;//am中已经指定这个am了
     public IUserInput pi;
     public float walkSpeed = 2.0f;
@@ -56,6 +57,7 @@ public class ActorController : MonoBehaviour
         col = GetComponent<CapsuleCollider>();
         motionController = model.GetComponent<RootMotionControll>();
         triggerController = model.GetComponent<TriggerControll>();
+        vfxController = model.GetComponent<VFXController>();
         camController.initController();
         motionController.initController();
         triggerController.initTriggerController();

@@ -314,6 +314,7 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\IUISource.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\Transition.cs" />
     <Compile Include="Assets\FguiFramework\Core\Tween\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\Scripts\Game\Controller\VFXController.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\Gears\GearBase.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\Shape.cs" />
     <Compile Include="Assets\FguiFramework\Core\Tween\DOTween\Modules\DOTweenModuleSprite.cs" />

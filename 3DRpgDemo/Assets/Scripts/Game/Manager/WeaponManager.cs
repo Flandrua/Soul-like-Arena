@@ -121,6 +121,7 @@ public class WeaponManager : IActorManagerInterface
 
     public void ChangeToLancer(bool isLancer)
     {
+        am.ac.vfxController.ResetNewVFX(isLancer ? CharacterClass.Lancer : CharacterClass.Warrior);
         am.ChangeToLancer(isLancer);
     }
 }
