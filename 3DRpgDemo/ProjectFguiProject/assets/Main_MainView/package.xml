@@ -2,10 +2,6 @@
 <packageDescription id="nejrx0e0">
   <resources>
     <component id="keig1" name="MainView.xml" path="/" exported="true"/>
-    <component id="opwx2" name="Button1.xml" path="/"/>
-    <image id="opwx3" name="B9JYE[TNO4899X@QK81W9P1.jpg" path="/"/>
-    <image id="opwx4" name="HMQSSX{D{3PLM8VU)8DOJM5.jpg" path="/"/>
-    <component id="opwx5" name="Button2.xml" path="/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

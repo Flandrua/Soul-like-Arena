@@ -62,6 +62,7 @@
     <Compile Include="Assets\FguiFramework\Core\Tween\DOTweenPro\DOTweenTextMeshPro.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\ScreenFader\ScreenFaderClip.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\UIContentScaler.cs" />
+    <Compile Include="Assets\HONETi\fantasy_gui_4\scripts\ResizePanel.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\Video\VideoScriptPlayableAsset.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Utils\Html\IHtmlObject.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\PackageItem.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Tween\TweenManager.cs" />
     <Compile Include="Assets\Scripts\Configs\CfgLanguage.cs" />
     <Compile Include="Assets\FguiFramework\Core\Manager\UIManager\ItemBase.cs" />
+    <Compile Include="Assets\HONETi\fantasy_gui_4\scripts\DragPanel.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\Stats.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\TimeDilation\TimeDilationClip.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\HitTest\HitTestContext.cs" />
@@ -114,13 +116,16 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\UIPackage.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\Mesh\FillMesh.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\Action\ChangePageAction.cs" />
+    <Compile Include="Assets\HONETi\fantasy_gui_4\scripts\LoadingSimulation.cs" />
     <Compile Include="Assets\Scripts\Game\WeaponData.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Utils\XMLUtils.cs" />
     <Compile Include="Assets\Scripts\Game\Timeline\MyPlayable\MyPlayableClip.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\TimeDilation\TimeDilationBehaviour.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\TextSwitcher\TextSwitcherTrack.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\LightControl\LightControlMixerBehaviour.cs" />
+    <Compile Include="Assets\HONETi\fantasy_gui_4\scripts\VideoPlayer.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Filter\IFilter.cs" />
+    <Compile Include="Assets\HONETi\fantasy_gui_4\scripts\Validate.cs" />
     <Compile Include="Assets\Scripts\Game\Factory\WeaponFactory.cs" />
     <Compile Include="Assets\FguiFramework\Core\Tween\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\FguiFramework\Core\Tween\DOTweenPro\DOTweenAnimation.cs" />
@@ -140,6 +145,7 @@
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\TransformTween\TransformTweenBehaviour.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Utils\ToolSet.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\GButton.cs" />
+    <Compile Include="Assets\HONETi\fantasy_gui_4\scripts\ChildGameObjects.cs" />
     <Compile Include="Assets\Scripts\SkipSplash.cs" />
     <Compile Include="Assets\FguiFramework\Core\Config\LitJson\IJsonWrapper.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\Gears\IAnimationGear.cs" />
@@ -175,6 +181,7 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\Gears\GearText.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\Text\FontManager.cs" />
     <Compile Include="Assets\FguiFramework\Core\Tween\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\HONETi\fantasy_gui_4\scripts\GUISoundManager.cs" />
     <Compile Include="Assets\Scripts\BlurManager.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\GScrollBar.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\Mesh\MeshFactory.cs" />
@@ -195,6 +202,7 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\TranslationHelper.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\UIConfig.cs" />
     <Compile Include="Assets\Scripts\Game\Manager\DirectorManager.cs" />
+    <Compile Include="Assets\HONETi\fantasy_gui_4\scripts\ChangeCursorOnHover.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\Mesh\RegularPolygonMesh.cs" />
     <Compile Include="Assets\Scripts\Game\Input\DummyIUserInput.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\EMRenderSupport.cs" />
@@ -240,6 +248,7 @@
     <Compile Include="Assets\Scripts\Game\Controller\WeaponController.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\Gears\GearLook.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\TextSwitcher\TextSwitcherClip.cs" />
+    <Compile Include="Assets\HONETi\fantasy_gui_4\scripts\BallMask.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\GComponent.cs" />
     <Compile Include="Assets\FguiFramework\Core\Data\EnumCenter.cs" />
     <Compile Include="Assets\Scripts\Game\Controller\CameraController.cs" />
@@ -257,6 +266,7 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Utils\Html\HtmlButton.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Utils\ByteBuffer.cs" />
     <Compile Include="Assets\FguiFramework\Core\Data\DataCenter.cs" />
+    <Compile Include="Assets\HONETi\fantasy_gui_4\scripts\GUISpriteRotate.cs" />
     <Compile Include="Assets\Scripts\Configs\CfgWeapon.cs" />
     <Compile Include="Assets\FguiFramework\Core\TimeManager.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\StageEngine.cs" />
@@ -311,6 +321,7 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Utils\Html\HtmlPageContext.cs" />
     <Compile Include="Assets\Scripts\Game\Manager\WeaponManager.cs" />
     <Compile Include="Assets\FguiFramework\Core\AudioManager.cs" />
+    <Compile Include="Assets\HONETi\fantasy_gui_4\scripts\SliderManager.cs" />
     <Compile Include="Assets\FguiFramework\Core\Config\LitJson\ParserToken.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\GLabel.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\Gears\GearFontSize.cs" />
@@ -325,6 +336,7 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\Action\PlayTransitionAction.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\ShaderConfig.cs" />
     <Compile Include="Assets\FguiFramework\Core\Tween\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Scripts\Game\Manager\UIManager.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\FieldTypes.cs" />
     <Compile Include="Assets\Scripts\UI\Main_MainView\MainView.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\PageOption.cs" />
@@ -337,6 +349,8 @@
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\NavMeshAgentControl\NavMeshAgentControlClip.cs" />
     <Compile Include="Assets\Scripts\Game\OnGroundSensor.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
+    <Compile Include="Assets\Scripts\Configs\CfgItem.cs" />
+    <Compile Include="Assets\Scripts\Configs\CfgSkill.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_PoiyomiShaders\Shaders\7.3\Pro\Includes\CGI_PoiFrag.cginc" />
@@ -1121,12 +1135,6 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -1138,9 +1146,6 @@
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
@@ -1157,6 +1162,9 @@
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
@@ -1172,23 +1180,32 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Shared.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -56,15 +56,15 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\BakeToVertexColorsEditor.cs" />
-    <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\ThirdPartyIncluderAsset.cs" />
     <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\PoiSettingsUtility.cs" />
-    <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\PoiOutlineUtil.cs" />
-    <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\PoiData.cs" />
-    <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\GradientFlood (8).cs" />
     <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\ThirdPartyIncluder.cs" />
-    <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\PoiImportExportChecker.cs" />
+    <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\PoiOutlineUtil.cs" />
+    <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\GradientFlood (8).cs" />
+    <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\PoiData.cs" />
+    <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\ThirdPartyIncluderAsset.cs" />
     <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\PoiHelpers.cs" />
+    <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\BakeToVertexColorsEditor.cs" />
+    <Compile Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Editor\PoiImportExportChecker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Resources\Poi\PoiTexturePacker.shader" />

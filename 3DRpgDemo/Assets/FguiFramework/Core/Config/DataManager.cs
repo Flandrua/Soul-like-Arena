@@ -14,6 +14,8 @@ public class DataManager : Singleton<DataManager>
         _cfgLanguage = SetConfigData<CfgLanguage>("CfgLanguage");
         _cfgWeapon = SetConfigData<CfgWeapon>("CfgWeapon");
         _cfgEnemy = SetConfigData<CfgEnemy>("CfgEnemy");
+        _cfgItem = SetConfigData<CfgItem>("CfgItem");
+        _cfgSkill = SetConfigData<CfgSkill>("CfgSkill");
     }
 
     private CfgGlobal _cfgGlobal;
@@ -23,6 +25,8 @@ public class DataManager : Singleton<DataManager>
     private CfgWeapon _cfgWeapon;
 
     private CfgEnemy _cfgEnemy;
+    private CfgItem _cfgItem;
+    private CfgSkill _cfgSkill;
 
     public CfgGlobal CfgGlobal { get => _cfgGlobal; }
 
@@ -30,6 +34,8 @@ public class DataManager : Singleton<DataManager>
 
     public CfgWeapon CfgWeapon { get => _cfgWeapon; }
     public CfgEnemy CfgEnemy { get => _cfgEnemy; }
+    public CfgSkill CfgSkill { get => _cfgSkill; }
+    public CfgItem CfgItem { get => _cfgItem; }
 
     private T SetConfigData<T>(string name)
     {

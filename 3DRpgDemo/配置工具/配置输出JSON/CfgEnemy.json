@@ -5,6 +5,7 @@
     "desc":"ybot",
     "name":"ybotRed",
     "HP":100,
+    "MP":10,
     "ATK":0,
     "pClass":"Warrior"
    },
@@ -13,6 +14,7 @@
     "desc":"ybot",
     "name":"ybotGreen",
     "HP":200,
+    "MP":10,
     "ATK":0,
     "pClass":"Warrior"
    },
@@ -21,6 +23,7 @@
     "desc":"ybot",
     "name":"ybotYellow",
     "HP":100,
+    "MP":10,
     "ATK":0,
     "pClass":"Lancer"
    }

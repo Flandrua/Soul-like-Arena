@@ -1,0 +1,13 @@
+{
+  "mDataMap":{
+  "1":  {
+    "id":1,
+    "desc":"MagicWave",
+    "HP":0,
+    "MP":1,
+    "EXP":0,
+    "ATK":10,
+    "DEF":0
+   }
+  }
+}

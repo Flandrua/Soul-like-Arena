@@ -18,10 +18,17 @@ public class GameManager : MonoSingleton<GameManager>
 
     public override void Init()
     {
-
+        EventManager.AddListener(EventCommon.SLOT_ONE, SlotOne);
+        EventManager.AddListener(EventCommon.SLOT_TWO, SlotTwo);
 
 
     }
+    private void OnDestroy()
+    {
+        EventManager.RemoveListener(EventCommon.SLOT_ONE, SlotOne);
+        EventManager.RemoveListener(EventCommon.SLOT_TWO, SlotTwo);
+    }
+
 
     public void InitWeaponFactory()
     {
@@ -69,6 +76,8 @@ public class GameManager : MonoSingleton<GameManager>
             ActorManager am = enemy.GetComponent<ActorManager>();
             WeaponManager wm = am.wm;
             VFXController vfxc = am.ac.vfxController;
+            DummyIUserInput  dummyIUserInput = enemy.GetComponent<DummyIUserInput>();
+            dummyIUserInput.player = playerWM.transform.parent.GetComponent<ActorManager>() ;
             switch (pClass)
             {
                 case CharacterClass.Warrior:
@@ -102,7 +111,14 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
-
+    public void SlotOne()
+    {
+        CreateWeapon(playerWM,false);
+    }
+    public void SlotTwo()
+    {
+        CreateWeapon(playerWM,true);
+    }
     // Update is called once per frame
     void Update()
     {

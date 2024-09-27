@@ -31,7 +31,7 @@ public class MyPlayableBehaviour : PlayableBehaviour
     public override void OnBehaviourPause(Playable playable, FrameData info)
     {
         if (stateLock) {
-            am.sm.HP = 0;
+            am.DieByDM();
             return; 
         }
         am.LockUnlockActorController(false);

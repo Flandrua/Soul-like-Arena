@@ -20,6 +20,11 @@ public class KeyboardInput : IUserInput
     public string keyJUp;
     public string keyJDown;
 
+    public string key1;
+    public string key2;
+    public string key3;
+    public string key4;
+
     [Header("====Mouse Settings====")]
     public bool mouseEnable = false;
     public float mouseSensitivityX = 1.0f;
@@ -61,8 +66,8 @@ public class KeyboardInput : IUserInput
 
         if (mouseEnable)
         {
-            Jup = Input.GetAxis("Mouse Y") * mouseSensitivityY*3;
-            Jright = Input.GetAxis("Mouse X") * mouseSensitivityX*2.5f;
+            Jup = Input.GetAxis("Mouse Y") * mouseSensitivityY * 3;
+            Jright = Input.GetAxis("Mouse X") * mouseSensitivityX * 2.5f;
         }
         else
         {
@@ -70,7 +75,7 @@ public class KeyboardInput : IUserInput
             Jright = (Input.GetKey(keyJRight) ? 1f : 0) - (Input.GetKey(keyJLeft) ? 1f : 0);
         }
 
-
+        
         targetDup = (Input.GetKey(keyUp) ? 1f : 0) - (Input.GetKey(keyDown) ? 1f : 0);
         targetDright = (Input.GetKey(keyRight) ? 1f : 0) - (Input.GetKey(keyLeft) ? 1f : 0);
         if (!inputEnabled)
@@ -89,6 +94,11 @@ public class KeyboardInput : IUserInput
 
         run = Input.GetKey(keyA);
         defense = Input.GetKey(keyD);
+
+        slot1 = Input.GetKey(key1);
+        slot2 = Input.GetKey(key2);
+        slot3 = Input.GetKey(key3);
+        slot4 = Input.GetKey(key4);
 
         bool newJump = Input.GetKey(keyB);
         if (newJump != lastJump && newJump == true)

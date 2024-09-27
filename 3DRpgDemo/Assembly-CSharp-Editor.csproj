@@ -56,14 +56,17 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_PoiyomiShaders\Scripts\ThryEditor\External\Editor\AbiAutoAnchor.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Editor\StageCameraEditor.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\LightControl\Editor\LightControlDrawer.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\Editor\TimelinePlayableWizard.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\ScreenFader\Editor\ScreenFaderDrawer.cs" />
+    <Compile Include="Assets\_PoiyomiShaders\Scripts\ThryEditor\External\Editor\AbiAutoLock.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\TransformTween\Editor\TransformTweenDrawer.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\TimeDilation\Editor\TimeDilationDrawer.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\TextSwitcher\Editor\TextSwitcherDrawer.cs" />
     <Compile Include="Assets\Scripts\Game\Timeline\MyPlayable\Editor\MyPlayableDrawer.cs" />
+    <Compile Include="Assets\_PoiyomiShaders\Scripts\ThryEditor\External\Editor\VRCAutoAnchor.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Editor\UIConfigEditor.cs" />
     <Compile Include="Assets\FguiFramework\Core\Tween\DOTweenPro\Editor\DOTweenPreviewManager.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Editor\UIPainterEditor.cs" />
@@ -78,9 +81,6 @@
     <Compile Include="Assets\Editor\BuildAssetBundle.cs" />
     <Compile Include="Assets\工具箱\Editor\BetterBounds.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Editor\UIPanelEditor.cs" />
-    <Compile Include="Assets\_PoiyomiShaders\Scripts\ThryEditor\External\Editor\VRCAutoAnchor.cs" />
-    <Compile Include="Assets\_PoiyomiShaders\Scripts\ThryEditor\External\Editor\AbiAutoAnchor.cs" />
-    <Compile Include="Assets\_PoiyomiShaders\Scripts\ThryEditor\External\Editor\AbiAutoLock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\FguiFramework\Core\Tween\DemiLib\Core\Editor\DemiEditor.dll" />
@@ -793,12 +793,6 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -810,9 +804,6 @@
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
@@ -829,6 +820,9 @@
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
@@ -844,23 +838,32 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Shared.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

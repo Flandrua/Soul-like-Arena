@@ -12,6 +12,7 @@ public abstract class IUserInput : MonoBehaviour
     public float Jup;
     public float Jright;
 
+
     public bool run;
     public bool defense;
     public bool jump;
@@ -30,6 +31,12 @@ public abstract class IUserInput : MonoBehaviour
     /// </summary>
     public bool rb;
     public bool rt;
+
+    public bool slot1;
+    public bool slot2;
+    public bool slot3;
+    public bool slot4;
+
 
 
     [Header("====Others====")]

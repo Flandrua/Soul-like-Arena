@@ -48,4 +48,20 @@ public class EventCommon
     public static string ON_COUNTER_BACK_EXIT = "OnCounterBackExit";
     public static string WEAPON_DISABLE = "WeaponDisable";
 
+    public static string OUT_OF_MP = "OutOfMP";
+
+    //=========UI Event===========
+    public static string UPDATE_HP = "UpdateHP";
+    public static string UPDATE_MP = "UpdateMP";
+    public static string SPAWN_RANDOM_ENEMY = "SpawnRandomEnemy";
+    public static string CHANGE_WEAPON = "ChangeWeapon";
+    public static string USE_SKILL = "UseSkill";
+    public static string USE_ITEM = "UseItem";
+    public static string SLOT_ONE = "SlotOne";
+    public static string SLOT_TWO = "SlotTwo";
+    public static string SLOT_THREE = "SlotThree";
+    public static string SLOT_FOUR = "SlotFour";
+    public static string ADD_DRUG = "AddDrug";
+
+
 }

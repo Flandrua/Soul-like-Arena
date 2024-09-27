@@ -1,3 +1,4 @@
+using Configs;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,8 +20,11 @@ public class ActorManager : MonoBehaviour
     [Header("===Override Animators===")]
     public AnimatorOverrideController swordAnim;
     public AnimatorOverrideController lanceAnim;
+
+
+    private List<SkillData> activeSkill = new List<SkillData>();
     // Start is called before the first frame update
-    private void Awake() 
+    private void Awake()
     {
         initManager();
     }
@@ -51,8 +55,9 @@ public class ActorManager : MonoBehaviour
         dm.initManager();
         im.initManager();
         ac.am = this;
+        sm.am = this;
         ac.initController();
-        deathEffect.isAI= ac.camController.isAI;
+        deathEffect.isAI = ac.camController.isAI;
     }
     public void DoAction()
     {
@@ -89,7 +94,7 @@ public class ActorManager : MonoBehaviour
 
                     }
                 }
-                else if(im.overlapEcastms[0].eventName == "backStab")
+                else if (im.overlapEcastms[0].eventName == "backStab")
                 {
                     transform.position = im.overlapEcastms[0].am.transform.position + im.overlapEcastms[0].am.transform.TransformVector(im.overlapEcastms[0].offset);
                     ac.model.transform.LookAt(im.overlapEcastms[0].am.transform, Vector3.up);
@@ -171,6 +176,68 @@ public class ActorManager : MonoBehaviour
             Die();
         }
     }
+    /// <summary>
+    /// 暂时只做了加血的功能
+    /// </summary>
+    /// <param name="id"></param>
+    public void UseItem(int id)
+    {
+        ItemData item = DataCenter.Instance.ReturnAvaibleItem(id);
+        if(item != null)
+        {
+            sm.AddHP(item.HP);
+        }
+    }
+
+    public void UseSkill(int id)
+    {
+        SkillData skill = DataCenter.Instance.ReturnAvaibleSkill(id);
+        if (skill != null)
+        {
+            if (activeSkill.Count > 0)
+            {
+                foreach (SkillData activeSkill in activeSkill)
+                {
+                    if (skill == activeSkill)
+                    {
+                        InactiveSKill(skill);
+                        return;
+                    }
+                    else
+                    {
+                        ActiveSkill(skill);
+                        return;
+                    }
+                }
+            }
+            else ActiveSkill(skill);
+        }
+    }
+
+    public void OutOfMP()
+    {
+        if (activeSkill.Count > 0)
+        {
+            foreach(SkillData skill in activeSkill)
+                InactiveSKill(skill);
+        }
+    }
+
+    public void ActiveSkill(SkillData skill)
+    {
+        activeSkill.Add(skill);
+        sm.AddMPPerSecond(-skill.MP);
+        sm.ATK += skill.ATK;
+        if (skill.id == 1) { ac.vfxController.canVFX = true; }
+    }
+    public void InactiveSKill(SkillData skill)
+    {
+        activeSkill.Remove(skill);
+        sm.AddMPPerSecond(skill.MP);
+        sm.ATK -= skill.ATK;
+        if (skill.id == 1) { ac.vfxController.canVFX = false; }
+    }
+
     public void Stunned()
     {
         ac.IssueTrigger("stunned");
@@ -185,8 +252,21 @@ public class ActorManager : MonoBehaviour
     }
     public void Die()
     {
-        sm.HP= 0;
+        sm.HP = 0;
+        OutOfMP();
+       
         ac.IssueTrigger("die");
+        ac.pi.inputEnabled = false;
+        if (ac.camController.lockState == true)
+        {
+            ac.camController.LockUnlock();
+        }
+        ac.camController.enabled = false;
+        deathEffect.death = true;
+    }
+    public void DieByDM()
+    {
+        sm.HP = 0;
         ac.pi.inputEnabled = false;
         if (ac.camController.lockState == true)
         {

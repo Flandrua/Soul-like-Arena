@@ -38,7 +38,7 @@ public class EnemyPool : MonoSingleton<EnemyPool>
                     StateManager sm = am.sm;
                     am.deathEffect.ResetAlpha();
                     am.initManager();
-                    sm.initData(sm.HPMax, sm.ATK);
+                    sm.initData(sm.HPMax,sm.MPMax, sm.ATK);
                     poolList.Remove(obj);
                     return obj;
                 }

@@ -9,6 +9,8 @@ public class JoystickInput : IUserInput
     public string axisY = "axisY";
     public string axisJright = "axis4";
     public string axisJup = "axis5";
+    public string axisCright = "axis6";
+    public string axisCup = "axis7";
     public string btnA = "btn0";
     public string btnB = "btn1";
     public string btnX = "btn2";
@@ -29,6 +31,11 @@ public class JoystickInput : IUserInput
     public MyButton buttonRB = new MyButton();
     public MyButton buttonRT = new MyButton();
     public MyButton buttonJstick = new MyButton();
+
+    public MyButton buttonCup = new MyButton();
+    public MyButton buttonCdown = new MyButton();
+    public MyButton buttonCright = new MyButton();
+    public MyButton buttonCleft = new MyButton();
 
 
 
@@ -62,16 +69,20 @@ public class JoystickInput : IUserInput
         buttonX.Tick(Input.GetButton(btnX));
         buttonY.Tick(Input.GetButton(btnY));
         buttonLB.Tick(Input.GetButton(btnLB));
-        buttonLT.Tick(Input.GetAxis(axisLT)>=0.9f ?true:false);
+        buttonLT.Tick(Input.GetAxis(axisLT) >= 0.9f ? true : false);
         buttonRB.Tick(Input.GetButton(btnRB));
         buttonRT.Tick(Input.GetAxis(axisRT) >= 0.9f ? true : false);
         buttonJstick.Tick(Input.GetButton(btnJstick));
+        buttonCup.Tick(Input.GetAxis(axisCup) >= 0.9f ? true : false);
+        buttonCright.Tick(Input.GetAxis(axisCright) >= 0.9f ? true : false);
+        buttonCleft.Tick(Input.GetAxis(axisCright) <= -0.9f ? true : false);
+        buttonCdown.Tick(Input.GetAxis(axisCup) <= -0.9f ? true : false);
 
 
 
-
-        Jup =-1* Input.GetAxis(axisJup);
+        Jup = -1 * Input.GetAxis(axisJup);
         Jright = Input.GetAxis(axisJright);
+
 
         targetDup = Input.GetAxis(axisY);
         targetDright = Input.GetAxis(axisX);
@@ -80,7 +91,7 @@ public class JoystickInput : IUserInput
             targetDup = 0;
             targetDright = 0;
         }
-        
+
         Dup = Mathf.SmoothDamp(Dup, targetDup, ref velocityDup, 0.1f);
         Dright = Mathf.SmoothDamp(Dright, targetDright, ref velocityDright, 0.1f);
 
@@ -104,6 +115,10 @@ public class JoystickInput : IUserInput
         lb = buttonLB.OnPressed;
         lt = buttonLT.OnPressed;
         lockon = buttonJstick.OnPressed;
+        slot1 = buttonCup.OnPressed;
+        slot2 = buttonCleft.OnPressed;
+        slot3 = buttonCdown.OnPressed;
+        slot4 = buttonCright.OnPressed;
     }
 
 }

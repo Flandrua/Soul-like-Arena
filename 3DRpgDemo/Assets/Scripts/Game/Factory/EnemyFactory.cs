@@ -27,8 +27,8 @@ public class EnemyFactory : MonoBehaviour
                 ActorManager am = obj.GetComponent<ActorManager>();
                 StateManager sm = am.sm;
                 am.initManager();
-                sm.initData(enemy.HP,enemy.ATK);
-
+                sm.initData(enemy.HP,enemy.MP,enemy.ATK);
+                am.GetComponent<DummyIUserInput>().InitAI();
             }
         }
             return obj;

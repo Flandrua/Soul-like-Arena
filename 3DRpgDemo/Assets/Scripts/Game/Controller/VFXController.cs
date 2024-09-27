@@ -5,6 +5,7 @@ using UnityEngine;
 public class VFXController : MonoBehaviour
 {
     public GameObject vfx;
+    public bool canVFX = false;
     private Transform _curVFX;
     private ParticleSystem _combo1;
     private ParticleSystem _combo2;
@@ -24,6 +25,7 @@ public class VFXController : MonoBehaviour
 
     public void PlayEffect(int order)
     {
+        if (vfx == null||_curVFX==null||!canVFX) { return; }
         switch (order)
         {
             case 1:

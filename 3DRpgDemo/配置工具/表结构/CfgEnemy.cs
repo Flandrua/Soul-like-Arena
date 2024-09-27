@@ -20,6 +20,8 @@ namespace Configs
         public string name;
         //血量
         public float HP;
+        //法力
+        public float MP;
         //攻击力
         public float ATK;
         //职业
