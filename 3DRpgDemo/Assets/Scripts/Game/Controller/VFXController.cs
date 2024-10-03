@@ -11,10 +11,17 @@ public class VFXController : MonoBehaviour
     private ParticleSystem _combo2;
     private ParticleSystem _combo3;
     private ParticleSystem _combo4;
+
+    public AudioSource _as;
+
+    public AudioClip combo1;
+    public AudioClip combo2;
+    public AudioClip combo3;
+    public AudioClip combo4;
     // Start is called before the first frame update
     void Start()
     {
-
+        _as = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,17 +32,33 @@ public class VFXController : MonoBehaviour
 
     public void PlayEffect(int order)
     {
-        if (vfx == null||_curVFX==null||!canVFX) { return; }
+        bool flag = true;
+        if (vfx == null || _curVFX == null || !canVFX) { flag = false; }
         switch (order)
         {
             case 1:
-                _combo1.Play(); break;
+                PlayClip(combo1);
+                if (flag)
+                    _combo1.Play();
+                break;
+
             case 2:
-                _combo2.Play(); break;
+                PlayClip(combo2);
+                if (flag)
+                    _combo2.Play();
+                break;
+
             case 3:
-                _combo3.Play(); break;
+                PlayClip(combo3);
+                if (flag)
+                    _combo3.Play();
+                break;
+
             case 4:
-                _combo4.Play(); break;
+                PlayClip(combo4);
+                if (flag)
+                    _combo4.Play();
+                break;
         }
     }
 
@@ -46,7 +69,7 @@ public class VFXController : MonoBehaviour
         ParticleSystem[] particleArray = null;
         if (pClass == CharacterClass.Lancer)
         {
-            _curVFX = vfx.transform.Find("Lancer");        
+            _curVFX = vfx.transform.Find("Lancer");
         }
         if (pClass == CharacterClass.Warrior)
         {
@@ -67,5 +90,11 @@ public class VFXController : MonoBehaviour
             if (particle.name == "3") _combo3 = particle;
             if (particle.name == "4") _combo4 = particle;
         }
+    }
+
+    public void PlayClip(AudioClip clip)
+    {
+        _as.clip = clip;
+        _as.Play();
     }
 }

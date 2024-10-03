@@ -13,6 +13,7 @@ public class WeaponManager : IActorManagerInterface
     public WeaponController wcL;
     public WeaponController wcR;
 
+
     private void Start()
     {
         initManager();
@@ -20,6 +21,7 @@ public class WeaponManager : IActorManagerInterface
 
     public void initManager()
     {
+
         try
         {
             whL = transform.DeepFind("weaponHandleL").gameObject;

@@ -90,6 +90,7 @@
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\TransformTween\TransformTweenTrack.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\GTree.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Utils\XMLIterator.cs" />
+    <Compile Include="Assets\8K Skybox Pack Free\Example Scenes\Script\RotateCamera.cs" />
     <Compile Include="Assets\Scripts\Configs\CfgEnemy.cs" />
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\ScreenFader\ScreenFaderMixerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Game\Manager\IActorManagerInterface.cs" />
@@ -351,7 +352,7 @@
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\NavMeshAgentControl\NavMeshAgentControlClip.cs" />
     <Compile Include="Assets\Scripts\Game\OnGroundSensor.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
-    <Compile Include="Assets\8K Skybox Pack Free\Example Scenes\Script\RotateCamera.cs" />
+    <Compile Include="Assets\Scripts\Game\Manager\CharacterAudioManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_PoiyomiShaders\Shaders\7.3\Pro\Includes\CGI_PoiFrag.cginc" />

@@ -16,7 +16,7 @@ public class ActorManager : MonoBehaviour
     public StateManager sm;
     public DirectorManager dm;
     public InteractionManager im;
-
+    public CharacterAudioManager charam;
     [Header("===Override Animators===")]
     public AnimatorOverrideController swordAnim;
     public AnimatorOverrideController lanceAnim;
@@ -48,6 +48,7 @@ public class ActorManager : MonoBehaviour
         sm = Bind<StateManager>(gameObject);
         dm = Bind<DirectorManager>(gameObject);
         im = Bind<InteractionManager>(sensor);
+        charam = Bind<CharacterAudioManager>(gameObject);
         ac.onAction += DoAction;
 
         //sm单独自己初始化 ac初始化所有controller
@@ -55,6 +56,7 @@ public class ActorManager : MonoBehaviour
         bm.initManager();
         dm.initManager();
         im.initManager();
+        charam.initManager();
         ac.am = this;
         sm.am = this;
         ac.initController();
