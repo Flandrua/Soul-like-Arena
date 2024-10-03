@@ -6,7 +6,7 @@ public class WeaponController : MonoBehaviour
 {
     public WeaponManager wm;
     public WeaponData wd;
-
+    public string curTag;
     private void Awake()
     {
         initController();

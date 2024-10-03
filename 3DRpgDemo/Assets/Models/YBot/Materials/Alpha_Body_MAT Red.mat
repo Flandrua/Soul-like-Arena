@@ -24,21 +24,27 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Alpha_Body_MAT Red
-  m_Shader: {fileID: 4800000, guid: 231d95ff7213dd74f82af136b256fb32, type: 3}
-  m_ValidKeywords:
+  m_Shader: {fileID: 4800000, guid: 5ccbf4e4645737a408d416d932fa0ccf, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
   - POI_VERTEXLIGHT_ON
   - VIGNETTE_MASKED
   - _LIGHTINGMODE_REALISTIC
   - _RIMSTYLE_POIYOMI
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap:
+    AllLockedGUIDS: 6b0dee6552deaf447ab7d0b4394b227f,440f8a517cc0bfa43a28e628b809e049,5f914ce3fa0fea44bb47f33f8dbe068d,45ddb33711c4fde43a735a5fde96369c
+    OriginalKeywords: POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE POI_LIGHT_DATA_ADDITIVE_ENABLE
+      POI_VERTEXLIGHT_ON VIGNETTE_MASKED _LIGHTINGMODE_REALISTIC _RIMSTYLE_POIYOMI
+    OriginalShader: .poiyomi/Old Versions/8.0/Poiyomi Toon
+    OriginalShaderGUID: 231d95ff7213dd74f82af136b256fb32
     RenderType: Transparent
+    _ColorAnimated: 1
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
@@ -1568,7 +1574,7 @@ Material:
     - _ScrollingEmission3: 0
     - _Set_HighColorMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShaderUIWarning0: -0
     - _ShaderUIWarning1: -0
     - _ShadingEnabled: 1

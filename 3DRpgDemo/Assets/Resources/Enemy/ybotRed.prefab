@@ -223,6 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wm: {fileID: 0}
   wd: {fileID: 0}
+  curTag: 
 --- !u!1 &217964838070312574
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,6 +2131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wm: {fileID: 0}
   wd: {fileID: 0}
+  curTag: 
 --- !u!1 &217964839595847119
 GameObject:
   m_ObjectHideFlags: 0
@@ -2371,7 +2373,7 @@ GameObject:
   - component: {fileID: 217964839671988419}
   m_Layer: 10
   m_Name: sensor
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2786,10 +2788,13 @@ MonoBehaviour:
   lt: 0
   rb: 0
   rt: 0
+  slot1: 0
+  slot2: 0
+  slot3: 0
+  slot4: 0
   inputEnabled: 1
   player: {fileID: 0}
   navAgent: {fileID: 217964839886134618}
-  canMove: 1
 --- !u!114 &217964839886134622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2811,6 +2816,7 @@ MonoBehaviour:
   im: {fileID: 0}
   swordAnim: {fileID: 22100000, guid: 9e3b5961beda6284290b6f121f576ffb, type: 2}
   lanceAnim: {fileID: 22100000, guid: 477bdb224345ea84c92233603b279aec, type: 2}
+  isLastEnemy: 0
 --- !u!114 &217964839886134623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2826,6 +2832,8 @@ MonoBehaviour:
   am: {fileID: 0}
   HP: 100
   HPMax: 100
+  MP: 10
+  MPMax: 10
   ATK: 10
   isGround: 0
   isJump: 0
@@ -2901,7 +2909,7 @@ NavMeshAgent:
   m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 360
+  m_AngularSpeed: 180
   m_StoppingDistance: 1.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -3121,6 +3129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: 0}
+  canVFX: 0
 --- !u!1 &217964839944631297
 GameObject:
   m_ObjectHideFlags: 0

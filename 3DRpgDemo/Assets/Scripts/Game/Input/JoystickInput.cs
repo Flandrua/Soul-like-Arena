@@ -79,46 +79,54 @@ public class JoystickInput : IUserInput
         buttonCdown.Tick(Input.GetAxis(axisCup) <= -0.9f ? true : false);
 
 
-
-        Jup = -1 * Input.GetAxis(axisJup);
-        Jright = Input.GetAxis(axisJright);
-
-
-        targetDup = Input.GetAxis(axisY);
-        targetDright = Input.GetAxis(axisX);
-        if (!inputEnabled)
+        if (UIManager.Instance.popWins.activeInHierarchy)
         {
-            targetDup = 0;
-            targetDright = 0;
+            if (buttonA.OnPressed) EventManager.DispatchEvent(EventCommon.CONFIRM_INDEX);
+            if (buttonCup.OnPressed) EventManager.DispatchEvent<int>(EventCommon.POP_INDEX, -1);
+            if (buttonCdown.OnPressed) EventManager.DispatchEvent<int>(EventCommon.POP_INDEX, 1);
         }
-
-        Dup = Mathf.SmoothDamp(Dup, targetDup, ref velocityDup, 0.1f);
-        Dright = Mathf.SmoothDamp(Dright, targetDright, ref velocityDright, 0.1f);
-
-        //Vector2 tempDAxis = SquareToCircle(new Vector2(Dright, Dup));
-        //float Dright2 = tempDAxis.x;
-        //float Dup2 = tempDAxis.y;
-
-        //Dmag = Mathf.Sqrt((Dup2 * Dup2) + (Dright2 * Dright2));
-        //Dvec = Dright2 * transform.right + Dup2 * transform.forward;
-
-        Dmag = Mathf.Sqrt((Dup * Dup) + (Dright * Dright));
-        Dvec = Dright * transform.right + Dup * transform.forward;
+        else
+        {
+            Jup = -1 * Input.GetAxis(axisJup);
+            Jright = Input.GetAxis(axisJright);
 
 
-        run = buttonA.IsPressing;
-        defense = buttonLB.IsPressing;
-        jump = buttonB.OnPressed;
-        action = buttonX.OnPressed;
-        rb = buttonRB.OnPressed;
-        rt = buttonRT.OnPressed;
-        lb = buttonLB.OnPressed;
-        lt = buttonLT.OnPressed;
-        lockon = buttonJstick.OnPressed;
-        slot1 = buttonCup.OnPressed;
-        slot2 = buttonCleft.OnPressed;
-        slot3 = buttonCdown.OnPressed;
-        slot4 = buttonCright.OnPressed;
+            targetDup = Input.GetAxis(axisY);
+            targetDright = Input.GetAxis(axisX);
+            if (!inputEnabled)
+            {
+                targetDup = 0;
+                targetDright = 0;
+            }
+
+            Dup = Mathf.SmoothDamp(Dup, targetDup, ref velocityDup, 0.1f);
+            Dright = Mathf.SmoothDamp(Dright, targetDright, ref velocityDright, 0.1f);
+
+            //Vector2 tempDAxis = SquareToCircle(new Vector2(Dright, Dup));
+            //float Dright2 = tempDAxis.x;
+            //float Dup2 = tempDAxis.y;
+
+            //Dmag = Mathf.Sqrt((Dup2 * Dup2) + (Dright2 * Dright2));
+            //Dvec = Dright2 * transform.right + Dup2 * transform.forward;
+
+            Dmag = Mathf.Sqrt((Dup * Dup) + (Dright * Dright));
+            Dvec = Dright * transform.right + Dup * transform.forward;
+
+
+            run = buttonA.IsPressing;
+            defense = buttonLB.IsPressing;
+            jump = buttonB.OnPressed;
+            action = buttonX.OnPressed;
+            rb = buttonRB.OnPressed;
+            rt = buttonRT.OnPressed;
+            lb = buttonLB.OnPressed;
+            lt = buttonLT.OnPressed;
+            lockon = buttonJstick.OnPressed;
+            slot1 = buttonCup.OnPressed;
+            slot2 = buttonCleft.OnPressed;
+            slot3 = buttonCdown.OnPressed;
+            slot4 = buttonCright.OnPressed;
+        }
     }
 
 }

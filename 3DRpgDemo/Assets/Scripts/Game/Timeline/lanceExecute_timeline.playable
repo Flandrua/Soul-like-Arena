@@ -25,7 +25,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 4314393456246660001}
-    m_Duration: 4
+    m_Duration: 5
     m_TimeScale: 1
     m_ParentTrack: {fileID: -4930519124059390396}
     m_EaseInDuration: 0
@@ -147,9 +147,9 @@ MonoBehaviour:
   template:
     am: {fileID: 0}
     myFloat: 0
-    stateLock: 0
+    stateLock: 1
   am:
-    exposedName: cccf3a77-10e2-495a-ab2a-e8ab0ca77dff
+    exposedName: d0b9d30f-1423-4e59-a9ef-1628f5f07823
     defaultValue: {fileID: 0}
 --- !u!114 &-1844672522719820809
 MonoBehaviour:
@@ -176,7 +176,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 708679676298596378}
-    m_Duration: 3
+    m_Duration: 2.8333333333333335
     m_TimeScale: 1
     m_ParentTrack: {fileID: -1844672522719820809}
     m_EaseInDuration: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
     myFloat: 100
     stateLock: 0
   am:
-    exposedName: 6d12ffa7-619b-4c51-805f-941911488d03
+    exposedName: fb49e894-9292-443f-923d-add2f8691950
     defaultValue: {fileID: 0}
 --- !u!114 &1096718119874905404
 MonoBehaviour:
@@ -359,7 +359,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -3768585199065547945}
-    m_Duration: 3
+    m_Duration: 2.8333333333333335
     m_TimeScale: 1
     m_ParentTrack: {fileID: 2608400741055214713}
     m_EaseInDuration: 0
@@ -555,7 +555,7 @@ MonoBehaviour:
     m_ExposedParameterNames: []
     m_AnimationCurves: {fileID: 0}
     m_Recordable: 0
-    m_PostExtrapolationMode: 1
+    m_PostExtrapolationMode: 0
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
@@ -564,7 +564,7 @@ MonoBehaviour:
     m_Start: 2.7333333333333334
     m_ClipIn: 0
     m_Asset: {fileID: 4115660010885064580}
-    m_Duration: 0.2666666666666666
+    m_Duration: 0.10000000000000009
     m_TimeScale: 1
     m_ParentTrack: {fileID: 6163526942950979214}
     m_EaseInDuration: 0
@@ -624,7 +624,7 @@ MonoBehaviour:
     m_ExposedParameterNames: []
     m_AnimationCurves: {fileID: 0}
     m_Recordable: 0
-    m_PostExtrapolationMode: 1
+    m_PostExtrapolationMode: 0
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: Infinity
     m_PreExtrapolationTime: 0

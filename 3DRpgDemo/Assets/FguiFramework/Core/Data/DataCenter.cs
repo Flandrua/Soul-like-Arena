@@ -73,7 +73,9 @@ public class DataCenter : Singleton<DataCenter>
 
     public void AddItem(int id, int count = 1)
     {
-        if (id == 1) { EventManager.DispatchEvent(EventCommon.ADD_DRUG, count); }
+        if (id == 1) { 
+            EventManager.DispatchEvent(EventCommon.ADD_POTION, count);
+        }
         for (int i = 0; i < count; i++)
         {
             var cfgItem = DataManager.Instance.CfgItem;

@@ -201,12 +201,10 @@ public class ActorController : MonoBehaviour
         }
         if (pi.slot3)
         {
-            EventManager.DispatchEvent(EventCommon.SLOT_THREE);
             am.UseSkill(1);
         }
         if (pi.slot4)
         {
-            EventManager.DispatchEvent(EventCommon.SLOT_FOUR);
             am.UseItem(1);
         }
     }

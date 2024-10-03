@@ -15,7 +15,7 @@ public class WeaponFactory
         weaponDB = cfgWeapon;
 
     }
-    public Collider CreateWeapon(string weaponName, string side,WeaponManager wm)
+    public Collider CreateWeapon(string weaponName, string side,WeaponManager wm,string tag)
     {
         WeaponController wc;
         if (side == "L")
@@ -36,12 +36,12 @@ public class WeaponFactory
         obj.transform.localPosition = Vector3.zero;
         obj.transform.localRotation = Quaternion.identity;
 
-        ApplyWeaponData(obj, weaponName,wc);
+        ApplyWeaponData(obj, weaponName,wc,tag);
         return obj.GetComponent<Collider>();
 
     }
 
-    private void ApplyWeaponData(GameObject obj,string weaponName,WeaponController wc)
+    private void ApplyWeaponData(GameObject obj,string weaponName,WeaponController wc,string tag)
     {
         WeaponData wd = obj.AddComponent<WeaponData>();
         foreach (var weapon in weaponDB.mDataMap.Values)
@@ -55,7 +55,7 @@ public class WeaponFactory
         }
 
        wc.wd = wd;
-
+        wc.curTag = tag;
         if (wd.ATK == -1) Debug.LogError(weaponName + " cant find data");
     }
 
