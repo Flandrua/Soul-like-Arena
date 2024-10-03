@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using static ActorController;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 using Toggle = UnityEngine.UI.Toggle;
 
-public class UIManager : MonoBehaviour
+public class UIManager : MonoSingleton<UIManager>
 {
     // Start is called before the first frame update
     public Image hpBall;
@@ -15,9 +16,23 @@ public class UIManager : MonoBehaviour
     public Toggle sword;
     public Toggle lance;
     public Toggle skill;
-    public Button drug;
-    public Text drugText;
-    private int drugCount;
+    public Button potion;
+    public Text potionText;
+
+
+
+    //===Level clear===
+
+
+    public GameObject popWins;
+    public Toggle ATK;
+    public Toggle HP;
+    public Toggle MP;
+    public Toggle Potion;
+
+    private Toggle[] contrlArray;
+    private int popIndex = 1;
+
     void Start()
     {
         EventManager.AddListener<float[]>(EventCommon.UPDATE_HP, UpdateHP);
@@ -29,7 +44,14 @@ public class UIManager : MonoBehaviour
         EventManager.AddListener(EventCommon.SLOT_TWO, SlotTwo);
         EventManager.AddListener(EventCommon.SLOT_THREE, SlotThree);
         EventManager.AddListener(EventCommon.SLOT_FOUR, SlotFour);
-        EventManager.AddListener<int>(EventCommon.ADD_DRUG, AddDrug);
+        EventManager.AddListener(EventCommon.ADD_POTION, ChangePotion);
+
+        EventManager.AddListener(EventCommon.POP_WINDOW, PopWindow);
+        EventManager.AddListener<int>(EventCommon.POP_INDEX, PopIndex);
+        EventManager.AddListener(EventCommon.CONFIRM_INDEX, ConfirmIndex);
+
+        contrlArray = new Toggle[4] {ATK,HP,MP, Potion };
+
     }
     private void OnDestroy()
     {
@@ -42,7 +64,11 @@ public class UIManager : MonoBehaviour
         EventManager.RemoveListener(EventCommon.SLOT_TWO, SlotTwo);
         EventManager.RemoveListener(EventCommon.SLOT_THREE, SlotThree);
         EventManager.RemoveListener(EventCommon.SLOT_FOUR, SlotFour);
-        EventManager.RemoveListener<int>(EventCommon.ADD_DRUG, AddDrug);
+        EventManager.RemoveListener(EventCommon.ADD_POTION, ChangePotion);
+
+        EventManager.RemoveListener(EventCommon.POP_WINDOW, PopWindow);
+        EventManager.RemoveListener<int>(EventCommon.POP_INDEX, PopIndex);
+        EventManager.RemoveListener(EventCommon.CONFIRM_INDEX, ConfirmIndex);
     }
 
     // Update is called once per frame
@@ -80,10 +106,9 @@ public class UIManager : MonoBehaviour
             skill.isOn = true;
         skill.Select();
     }
-    public void UseDrug()
+    public void ChangePotion()
     {
-        drugCount--;
-        drugText.text = $"{drugCount}";
+        potionText.text = $"{DataCenter.Instance.GameData.MainPlayer.itemBag.Count}";
     }
 
 
@@ -102,12 +127,67 @@ public class UIManager : MonoBehaviour
     }
     private void SlotFour()
     {
-        UseDrug();
+        ChangePotion();
     }
 
-    private void AddDrug(int count)
+    private void PopWindow()
     {
-        drugCount = count;
+        if (popWins.activeInHierarchy)
+            popWins.SetActive(false);
+        else
+            popWins.SetActive(true);
+    }
+    private void PopIndex(int index)
+    {
+        popIndex += index;
+        if (popIndex > contrlArray.Length-1)
+            popIndex = 0;
+        else if(popIndex<0)
+            popIndex  = contrlArray.Length-1;
+
+        else if (popIndex == contrlArray.Length)
+            popIndex = 1;
+
+        for (int i = 0; i < contrlArray.Length; i++)
+        {
+            if (i == popIndex)
+            {
+                contrlArray[i].isOn = true;
+            }
+            else
+            {
+                contrlArray[i].isOn = false;
+            }
+        }
     }
 
+    public void OnPopToggleClick(int newIndex) {
+        popIndex= newIndex;
+        ConfirmIndex();
+    }
+    public void OnPointerEnter()
+    {
+        for (int i = 0; i < contrlArray.Length; i++)
+        {
+                contrlArray[i].isOn = false;
+        }
+    }
+    private void ConfirmIndex()
+    {
+        PopWindow();
+
+        switch (popIndex)
+        {
+            case 0:
+                EventManager.DispatchEvent(EventCommon.CHOOSE_ATK); break;
+            case 1:
+                EventManager.DispatchEvent(EventCommon.CHOOSE_HPMAX); break;
+            case 2:
+                EventManager.DispatchEvent(EventCommon.CHOOSE_MPMAX); break;
+            case 3:
+                EventManager.DispatchEvent(EventCommon.CHOOSE_POTION); break;
+        }
+
+        EventManager.DispatchEvent(EventCommon.NEXT_WAVE);
+    }
 }

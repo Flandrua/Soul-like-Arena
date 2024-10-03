@@ -209,6 +209,7 @@
     <Compile Include="Assets\FguiFramework\Core\Config\LitJson\JsonReader.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\Text\CopyPastePatch.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\DisplayOptions.cs" />
+    <Compile Include="Assets\Scripts\Game\Manager\UIManager.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\PopupMenu.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\GSlider.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\GProgressBar.cs" />
@@ -252,6 +253,7 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\GComponent.cs" />
     <Compile Include="Assets\FguiFramework\Core\Data\EnumCenter.cs" />
     <Compile Include="Assets\Scripts\Game\Controller\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Configs\CfgItem.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\Container.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\GObjectPool.cs" />
     <Compile Include="Assets\Scripts\SDK\AdapterBase.cs" />
@@ -274,6 +276,7 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\GTextInput.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\Relations.cs" />
     <Compile Include="Assets\Scripts\Game\MyButton.cs" />
+    <Compile Include="Assets\Scripts\Configs\CfgSkill.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\GGroup.cs" />
     <Compile Include="Assets\Scripts\Game\Controller\EventCasterController.cs" />
     <Compile Include="Assets\FguiFramework\Core\Manager\UIManager\UIManager2D.cs" />
@@ -336,7 +339,6 @@
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\Action\PlayTransitionAction.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Core\ShaderConfig.cs" />
     <Compile Include="Assets\FguiFramework\Core\Tween\DOTween\Modules\DOTweenModuleAudio.cs" />
-    <Compile Include="Assets\Scripts\Game\Manager\UIManager.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\FieldTypes.cs" />
     <Compile Include="Assets\Scripts\UI\Main_MainView\MainView.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\UI\PageOption.cs" />
@@ -349,8 +351,7 @@
     <Compile Include="Assets\UnityTechnologies\DefaultPlayables\NavMeshAgentControl\NavMeshAgentControlClip.cs" />
     <Compile Include="Assets\Scripts\Game\OnGroundSensor.cs" />
     <Compile Include="Assets\FguiFramework\Core\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
-    <Compile Include="Assets\Scripts\Configs\CfgItem.cs" />
-    <Compile Include="Assets\Scripts\Configs\CfgSkill.cs" />
+    <Compile Include="Assets\8K Skybox Pack Free\Example Scenes\Script\RotateCamera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_PoiyomiShaders\Shaders\7.3\Pro\Includes\CGI_PoiFrag.cginc" />
@@ -369,6 +370,7 @@
     <None Include="Assets\_PoiyomiShaders\Shaders\8.1\Toon\Poiyomi Outline.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\9.0\Toon\Poiyomi Toon.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\8.0\Poiyomi.shader" />
+    <None Include="Assets\8K Skybox Pack Free\ReadMe.txt" />
     <None Include="Assets\_PoiyomiShaders\ThirdPartyLicenses\SILENT_LICENSE.txt" />
     <None Include="Assets\_PoiyomiShaders\Scripts\ThryEditor\External\ReadMe.txt" />
     <None Include="Assets\_PoiyomiShaders\Shaders\7.3\Pro\Includes\CGI_PoiSpawnInVert.cginc" />
@@ -451,11 +453,13 @@
     <None Include="Assets\_PoiyomiShaders\Shaders\7.3\Pro\Includes\CGI_PoiPenetration.cginc" />
     <None Include="Assets\Scripts\Dll\UnityDecryptDll.dll" />
     <None Include="Assets\_PoiyomiShaders\Shaders\8.1\Toon\Poiyomi.shader" />
+    <None Include="Assets\Models\YBot\Materials\OptimizedShaders\Alpha_Body_MAT Red\Poiyomi.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\7.3\Pro\Includes\CGI_PoiDefines.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\8.0\Poiyomi Outline.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\9.0\Toon\Poiyomi Toon Two Pass.shader" />
     <None Include="Assets\FguiFramework\Core\Tween\DOTween\readme.txt" />
     <None Include="Assets\Hovl Studio\Procedural fire\Shaders\FireSphere.shader" />
+    <None Include="Assets\Models\YBot\Materials\OptimizedShaders\Alpha_Joints_MAT\Poiyomi Toon.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\7.3\Pro\Includes\CGI_PoiOutlineFrag.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Extras\MasterScanner.shader" />
     <None Include="Assets\Hovl Studio\Sword slash VFX\Shaders\Add_CenterGlow.shader" />

@@ -34,9 +34,10 @@ public class BattleManager : IActorManagerInterface
         {
             WeaponController targetWc = col.GetComponentInParent<WeaponController>();
             if (targetWc == null) return;
+            if(targetWc.curTag==tag) return;
             GameObject attacker = targetWc.wm.am.ac.model.gameObject;
             GameObject receiver = am.ac.model;
-            am.TryDoDamage(targetWc, CheckAngleTarger(receiver,attacker,70), CheckAnglePlayer(receiver,attacker,30));
+            am.TryDoDamage(targetWc, CheckAngleTarger(receiver,attacker,120), CheckAnglePlayer(receiver,attacker,30));
         }
     }
     public static bool CheckAnglePlayer(GameObject player, GameObject target, float playerAngleLimit)

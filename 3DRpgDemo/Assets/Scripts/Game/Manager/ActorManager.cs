@@ -23,6 +23,7 @@ public class ActorManager : MonoBehaviour
 
 
     private List<SkillData> activeSkill = new List<SkillData>();
+    public bool isLastEnemy = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -63,14 +64,14 @@ public class ActorManager : MonoBehaviour
     {
         if (im.overlapEcastms.Count != 0)
         {
-            if (im.overlapEcastms[0].active == true && !dm.IsPlaying())
+            if (im.overlapEcastms[0].active == true && !dm.IsPlaying())//这里不能是第[0]个，必须得好好锁定到目标？
             {
                 if (im.overlapEcastms[0].eventName == "frontStab")
                 {
                     transform.position = im.overlapEcastms[0].am.transform.position + im.overlapEcastms[0].am.transform.TransformVector(im.overlapEcastms[0].offset);
                     ac.model.transform.LookAt(im.overlapEcastms[0].am.transform, Vector3.up);
                     dm.PlayFrontStab("frontStab", this, im.overlapEcastms[0].am);
-
+                    im.overlapEcastms.Remove(im.overlapEcastms[0]);
                 }
                 else if (im.overlapEcastms[0].eventName == "openBox")
                 {
@@ -127,6 +128,7 @@ public class ActorManager : MonoBehaviour
 
     public void TryDoDamage(WeaponController targetWc, bool attackValid, bool counterValid)
     {
+        if (ac.CheckState("roll")) return;
         if (sm.isCounterBackSucess)
         {
             if (counterValid)
@@ -185,6 +187,7 @@ public class ActorManager : MonoBehaviour
         ItemData item = DataCenter.Instance.ReturnAvaibleItem(id);
         if(item != null)
         {
+            EventManager.DispatchEvent(EventCommon.SLOT_FOUR);
             sm.AddHP(item.HP);
         }
     }
@@ -194,6 +197,7 @@ public class ActorManager : MonoBehaviour
         SkillData skill = DataCenter.Instance.ReturnAvaibleSkill(id);
         if (skill != null)
         {
+            EventManager.DispatchEvent(EventCommon.SLOT_THREE);
             if (activeSkill.Count > 0)
             {
                 foreach (SkillData activeSkill in activeSkill)
@@ -256,17 +260,22 @@ public class ActorManager : MonoBehaviour
         OutOfMP();
        
         ac.IssueTrigger("die");
-        ac.pi.inputEnabled = false;
+        ac.pi.inputEnabled = false;     
         if (ac.camController.lockState == true)
         {
             ac.camController.LockUnlock();
         }
         ac.camController.enabled = false;
         deathEffect.death = true;
+
+        if(ac.camController.isAI) { 
+            GameManager.Instance.CheckAIExist(); 
+        }
     }
     public void DieByDM()
     {
         sm.HP = 0;
+        OutOfMP();
         ac.pi.inputEnabled = false;
         if (ac.camController.lockState == true)
         {
@@ -274,6 +283,11 @@ public class ActorManager : MonoBehaviour
         }
         ac.camController.enabled = false;
         deathEffect.death = true;
+
+        if (ac.camController.isAI)
+        {
+            GameManager.Instance.CheckAIExist();
+        }
     }
     public void LockUnlockActorController(bool value)
     {

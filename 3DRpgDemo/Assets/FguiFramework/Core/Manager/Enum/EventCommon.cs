@@ -49,7 +49,7 @@ public class EventCommon
     public static string WEAPON_DISABLE = "WeaponDisable";
 
     public static string OUT_OF_MP = "OutOfMP";
-
+    public static string NEXT_WAVE = "NextWave";
     //=========UI Event===========
     public static string UPDATE_HP = "UpdateHP";
     public static string UPDATE_MP = "UpdateMP";
@@ -61,7 +61,15 @@ public class EventCommon
     public static string SLOT_TWO = "SlotTwo";
     public static string SLOT_THREE = "SlotThree";
     public static string SLOT_FOUR = "SlotFour";
-    public static string ADD_DRUG = "AddDrug";
+    public static string ADD_POTION = "AddPotion";
+    public static string POP_WINDOW = "PopWindow";
+    public static string POP_INDEX = "PopIndex";
+    public static string CONFIRM_INDEX = "ConfirmIndex";
+    public static string CHOOSE_ATK = "ChooseATK";
+    public static string CHOOSE_HPMAX = "ChooseHPMax";
+    public static string CHOOSE_MPMAX = "ChooseMPMax";
+    public static string CHOOSE_POTION = "ChoosePotion";
+    
 
 
 }

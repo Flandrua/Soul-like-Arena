@@ -39,8 +39,9 @@ public class StateManager : IActorManagerInterface
 
     private void Start()
     {
-        initData(HPMax, MPMax, ATK, false);
+        initData(HPMax, MPMax, ATK, am.ac.camController.isAI);
     }
+
     public void initData(float hpMax, float mpMax, float atk, bool isAI = true)//µ•∂¿≥ı ºªØ
     {
         ATK = atk;
@@ -99,7 +100,8 @@ public class StateManager : IActorManagerInterface
         HP += value;
         HP = Mathf.Clamp(HP, 0, HPMax);
         float[] hp = { HP, HPMax };
-        EventManager.DispatchEvent(EventCommon.UPDATE_HP, hp);
+        if (!am.deathEffect.isAI)
+            EventManager.DispatchEvent(EventCommon.UPDATE_HP, hp);
     }
 
     public void AddMP(float value)
@@ -107,7 +109,8 @@ public class StateManager : IActorManagerInterface
         MP += value;
         MP = Mathf.Clamp(MP, 0, MPMax);
         float[] mp = { MP, MPMax };
-        EventManager.DispatchEvent(EventCommon.UPDATE_MP, mp);
+        if (!am.deathEffect.isAI)
+            EventManager.DispatchEvent(EventCommon.UPDATE_MP, mp);
     }
     public void SetIsCounterBack(bool value)
     {

@@ -15,7 +15,7 @@ public class DummyIUserInput : IUserInput
     }
     public void InitAI()
     {
-        navAgent.updatePosition = false;
+        navAgent.updatePosition = false;       
     }
     // Update is called once per frame
     void Update()
@@ -28,7 +28,18 @@ public class DummyIUserInput : IUserInput
 
     private void AILogic()
     {
-        if (!inputEnabled) return;
+        if(!gameObject.activeInHierarchy)return;
+        if (!navAgent.isOnNavMesh)
+        {
+            navAgent.Warp(new Vector3(-33.9f, 8.410954f, 32.48f));
+        }
+        if (!inputEnabled)
+        {
+            Dmag = 0f;
+            run = false;
+            navAgent.isStopped = true; // 停止移动
+            return;
+        }
         navAgent.SetDestination(player.transform.position); // 设置目标位置为玩家
         //移动到player
         if (curDistance <= navAgent.stoppingDistance)

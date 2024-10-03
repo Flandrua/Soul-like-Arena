@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyPool : MonoSingleton<EnemyPool>
 {
@@ -39,6 +40,7 @@ public class EnemyPool : MonoSingleton<EnemyPool>
                     am.deathEffect.ResetAlpha();
                     am.initManager();
                     sm.initData(sm.HPMax,sm.MPMax, sm.ATK);
+                    am.ac.casterController.gameObject.SetActive(false);
                     poolList.Remove(obj);
                     return obj;
                 }
