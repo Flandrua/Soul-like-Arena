@@ -84,7 +84,7 @@ public class ActorController : MonoBehaviour
         {
             anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), ((pi.run) ? 2.0f : 1.0f), 0.2f));
             anim.SetFloat("right", 0);
-
+            am.charam.PlayerAudio("step");
         }
         else
         {
@@ -312,6 +312,7 @@ public class ActorController : MonoBehaviour
 
     public void OnRollEnter()
     {
+        am.charam.PlayerAudio("roll");
         pi.inputEnabled = false;
         planarVec += pi.Dvec * walkSpeed * 2;
         thrustVec = new Vector3(0, rollVelocity, 0);
@@ -320,6 +321,7 @@ public class ActorController : MonoBehaviour
     }
     public void OnJabEnter()
     {
+        am.charam.PlayerAudio("jab");
         pi.inputEnabled = false;
         lockPlanar = true;
     }
@@ -347,18 +349,21 @@ public class ActorController : MonoBehaviour
     }
     public void OnHitEnter()
     {
+        am.charam.PlayerAudio("hit");
         pi.inputEnabled = false;
         planarVec = Vector3.zero;
         model.SendMessage("WeaponDisable");
     }
     public void OnDieEnter()
     {
+        am.charam.PlayerAudio("slayed");
         pi.inputEnabled = false;
         planarVec = Vector3.zero;
         model.SendMessage("WeaponDisable");
     }
     public void OnBlockedEnter()
     {
+        am.charam.PlayerAudio("defend");
         pi.inputEnabled = false;
     }
     public void OnUpdateRM(object _deltaPos)
